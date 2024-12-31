@@ -69,6 +69,8 @@
 - python -m venv .venv
 - .\\.venv\Scripts\activate
 - python -m pip list
+- python -m pip install -U numpy
+- python -m pip install -U pandas
 - python -m pip install -U openai
 - python -m pip install -U requests
 - python -m pip install -U colorama
