@@ -53,7 +53,7 @@
 #     print(
 #         "Id:",
 #         model["id"],
-#         " " * (40 - len(model["id"])),
+#         " " * (50 - len(model["id"])),
 #         "Owned By:",
 #         model["owned_by"],
 #     )
@@ -95,7 +95,7 @@ for index, model in enumerate(suported_models):
     if "openai" in owned_by:
         owned_by = f"{Fore.RED}{owned_by}{Fore.RESET}"
 
-    message = f"Id: {id.ljust(40, " ")} Owned By: {owned_by}"
+    message = f"Id: {id.ljust(50, " ")} Owned By: {owned_by}"
 
     if index % 2 == 0:
         print(f"{Fore.WHITE}{message}{Fore.RESET}")

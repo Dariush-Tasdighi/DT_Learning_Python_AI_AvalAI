@@ -1,5 +1,3 @@
-![avalai.ir](avalai.png)
-
 # Learning TikToken
 
 ## References
@@ -27,12 +25,3 @@
 Write / Modify / Run Source Codes(s)!
 
 - deactivate
-
-## Create .env File (For Saving Passwords / API Keys / Access Tokens / ...)
-
-- In the root of project, create a file, with the name of '.env', and write key name(s) and value:
-    - AVALAI_API_KEY="..."
-
-## Run
-
-- python .\app.py
