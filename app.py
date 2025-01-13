@@ -1,17 +1,17 @@
 # **************************************************
-API_KEY_NAME = "AVALAI_API_KEY"
-BASE_URL = "https://api.avalai.ir/v1"
+API_KEY_NAME: str = "AVALAI_API_KEY"
+BASE_URL: str = "https://api.avalai.ir/v1"
 # **************************************************
 
 # **************************************************
-MODEL_NAME = "gpt-4o"
-# MODEL_NAME = "gpt-4o-mini"
-# MODEL_NAME = "gpt-3.5-turbo"
-# MODEL_NAME = "gpt-3.5-turbo-instruct"
+# MODEL_NAME: str = "gpt-4o"
+# MODEL_NAME: str = "gpt-4o-mini"
+MODEL_NAME: str = "gpt-3.5-turbo"
+# MODEL_NAME: str = "gpt-3.5-turbo-instruct"
 # **************************************************
 
 # **************************************************
-# Sample - Very Simple Sample
+# Sample 0 - Very Simple Sample
 # **************************************************
 import os
 from openai import OpenAI
@@ -43,8 +43,6 @@ print("-" * 50)
 
 # load_dotenv()
 # api_key = os.getenv(key=API_KEY_NAME)
-# # print(api_key)
-
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # response = client.chat.completions.create(
@@ -115,15 +113,18 @@ print("-" * 50)
 
 # load_dotenv()
 # api_key = os.getenv(key=API_KEY_NAME)
-
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # response_stream = client.chat.completions.create(
 #     stream=True,
-#     temperature=0.7,  # Recommanded: between 0 to 1
+#     temperature=0.7,
 #     model=MODEL_NAME,
-#     messages=[{"role": "user", "content": "Why sky is blue?"}],
+#     messages=[
+#         {"role": "user", "content": "Tell me a short story about science fiction."}
+#     ],
 # )
+
+# print("-" * 50)
 
 # for chunk in response_stream:
 #     if chunk.choices[0].finish_reason == "stop":
@@ -132,6 +133,9 @@ print("-" * 50)
 #     content = chunk.choices[0].delta.content
 #     if content is not None:
 #         print(content, end="")
+
+# print()
+# print("-" * 50)
 # **************************************************
 
 # **************************************************
@@ -146,24 +150,19 @@ print("-" * 50)
 
 # load_dotenv()
 # api_key = os.getenv(key=API_KEY_NAME)
-
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-# start_time = time.time()
+# start_time: float = time.time()
 
 # response = client.chat.completions.create(
 #     stream=False,
-#     temperature=0.7,  # Recommanded: between 0 to 1
+#     temperature=0.7,
 #     model=MODEL_NAME,
 #     messages=[{"role": "user", "content": "Tell me a joke."}],
 # )
 
-# response_time = time.time() - start_time
+# response_time: float = time.time() - start_time
 
-# print("-" * 50)
-# print("Type of response:", type(response))
-# print("-" * 50)
-# print(response)
 # print("-" * 50)
 # print(response.choices[0].message.content)
 # print("-" * 50)
@@ -180,7 +179,7 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name, temperature: float = 0.7) -> str:
+# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -210,25 +209,25 @@ print("-" * 50)
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-#     user_prompt = input("User: ")
+#     user_prompt: str = input("User: ")
 
 #     messages = []
 
 #     # نکته مهم: پیغام سیستم، باید فقط
 #     # یک‌بار، و حتما در ابتدا نوشته شود
-#     system_prompt = "You are a helpful AI assistant."
+#     system_prompt: str = "You are a helpful AI assistant."
 #     system_message = {"role": "system", "content": system_prompt}
 #     messages.append(system_message)
 
 #     user_message = {"role": "user", "content": user_prompt}
 #     messages.append(user_message)
 
-#     start_time = time.time()
-#     user_answer: str = chat_completions(messages=messages, model_name=MODEL_NAME)
-#     response_time = time.time() - start_time
+#     start_time: float = time.time()
+#     assistant_answer: str = chat_completions(messages=messages, model_name=MODEL_NAME)
+#     response_time: float = time.time() - start_time
 
 #     print("-" * 50)
-#     print(user_answer)
+#     print(assistant_answer)
 #     print("-" * 50)
 #     print(f"Full response received {response_time:.2f} seconds after request.")
 #     print("-" * 50)
@@ -247,7 +246,7 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name, temperature: float = 0.7) -> str:
+# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -278,26 +277,28 @@ print("-" * 50)
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 #     while True:
-#         user_prompt = input("User: ")
+#         user_prompt: str = input("User: ")
 
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
 #         messages = []
 
-#         system_prompt = "You are a helpful AI assistant."
+#         system_prompt: str = "You are a helpful AI assistant."
 #         system_message = {"role": "system", "content": system_prompt}
 #         messages.append(system_message)
 
 #         user_message = {"role": "user", "content": user_prompt}
 #         messages.append(user_message)
 
-#         start_time = time.time()
-#         user_answer: str = chat_completions(messages=messages, model_name=MODEL_NAME)
-#         response_time = time.time() - start_time
+#         start_time: float = time.time()
+#         assistant_answer: str = chat_completions(
+#             messages=messages, model_name=MODEL_NAME
+#         )
+#         response_time: float = time.time() - start_time
 
 #         print("-" * 50)
-#         print(user_answer)
+#         print(assistant_answer)
 #         print("-" * 50)
 #         print(f"Full response received {response_time:.2f} seconds after request.")
 #         print("-" * 50)
@@ -317,7 +318,7 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name, temperature: float = 0.7) -> str:
+# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -354,7 +355,7 @@ print("-" * 50)
 #     messages.append(system_message)
 
 #     while True:
-#         user_prompt = input("User: ")
+#         user_prompt: str = input("User: ")
 
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
@@ -362,11 +363,11 @@ print("-" * 50)
 #         user_message = {"role": "user", "content": user_prompt}
 #         messages.append(user_message)
 
-#         start_time = time.time()
+#         start_time: float = time.time()
 #         assistant_answer: str = chat_completions(
 #             messages=messages, model_name=MODEL_NAME
 #         )
-#         response_time = time.time() - start_time
+#         response_time: float = time.time() - start_time
 
 #         assistant_message = {"role": "assistant", "content": assistant_answer}
 #         messages.append(assistant_message)
@@ -384,7 +385,8 @@ print("-" * 50)
 # **************************************************
 
 # **************************************************
-# Sample 7 - Simple AI Agent - With History - Dictionary
+# Sample 7 - Simple AI Agent - Without History
+# It is a Perfect Dictionary
 # **************************************************
 # import os
 # import time
@@ -392,7 +394,7 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name, temperature: float = 0.7) -> str:
+# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -422,15 +424,13 @@ print("-" * 50)
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-#     messages = []
+#     # system_prompt: str = "You are a helpful AI assistant."
 
-#     # system_prompt = "You are a helpful AI assistant."
-
-#     system_prompt = """
+#     system_prompt: str = """
 #     You are a professional translator assistant from English language to Farsi language.
 
 #     User must write just one word in English language.
-    
+
 #     If user wrote more than one word, or one word but \
 #     not in English language, answer 'Error! Try Again...'.
 
@@ -442,7 +442,8 @@ print("-" * 50)
 #     Write the 2 English Antonyms in ##### parts.
 #     Write the 2 sample and simple English sentences in ###### parts.
 
-#     Just write the below text based on above instructions.
+#     Just write the below text based on above instructions and replace '#' \
+#     with your answers and never write '#' in your result.
 
 #     Translated to Farsi Language: ##
 #     English Pronounce: ###
@@ -463,26 +464,25 @@ print("-" * 50)
 #     2. ######
 #     """
 
-#     system_message = {"role": "system", "content": system_prompt}
-#     messages.append(system_message)
-
 #     while True:
-#         user_prompt = input("User: ")
+#         user_prompt: str = input("User: ")
 
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
+#         messages = []
+
+#         system_message = {"role": "system", "content": system_prompt}
+#         messages.append(system_message)
+
 #         user_message = {"role": "user", "content": user_prompt}
 #         messages.append(user_message)
 
-#         start_time = time.time()
+#         start_time: float = time.time()
 #         assistant_answer: str = chat_completions(
 #             messages=messages, model_name=MODEL_NAME
 #         )
-#         response_time = time.time() - start_time
-
-#         assistant_message = {"role": "assistant", "content": assistant_answer}
-#         messages.append(assistant_message)
+#         response_time: float = time.time() - start_time
 
 #         print("-" * 50)
 #         print(assistant_answer)
