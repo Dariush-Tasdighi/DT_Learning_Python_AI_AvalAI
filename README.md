@@ -1,6 +1,6 @@
 ![avalai.ir](avalai.png)
 
-# Working with AvalAI.ir Online Service
+# Working with ChatGPT (API) with AvalAI.ir Online Service
 
 - https://avalai.ir
 - https://avalai.ir/blog
@@ -59,39 +59,78 @@
     - https://api.avalai.ir/v1
     - https://api.avalapis.ir/v1
 
-## References
+### References
 
 - https://pypi.org/project/openai
 - https://pypi.org/project/python-dotenv
 
-#### Playing and Recording Sound
+### Playing and Recording Sound
 
 - https://realpython.com/playing-and-recording-sound-python
 
-## Setup
+### Setup
 
-- python -m venv .venv
-- .\\.venv\Scripts\activate
+```bash
+python -m venv .venv
+```
 
-- python -m pip list
+```bash
+.\.venv\Scripts\activate
+```
 
-- python -m pip install -U openai
-- python -m pip install -U colorama
-- python -m pip install -U python-dotenv
+```bash
+python -m pip list
+```
 
-- python -m pip list
+```bash
+python -m pip install -U pip
+```
 
-Write / Modify / Run Source Codes(s)!
+```bash
+python -m pip install -U openai
+```
 
-- deactivate
+```bash
+python -m pip install -U colorama
+```
 
-## Create .env File (For Saving Passwords / API Keys / Access Tokens / ...)
+```bash
+python -m pip install -U tiktoken
+```
+
+```bash
+python -m pip install -U python-dotenv
+```
+
+```bash
+python -m pip list
+```
+
+Now! We Create / Modify / Delete / Run the Source Codes...
+
+```bash
+deactivate
+```
+
+### Create .env File (For Saving Passwords / API Keys / Access Tokens / ...)
 
 - In the root of project, create a file, with the name of '.env', and write key name(s) and value:
     - AVALAI_API_KEY="..."
 
-## Run
+### Run
 
-- python .\check_credit.py
-- python .\display_supported_models.py
-- python .\app.py
+```bash
+python .\app.py
+```
+
+```bash
+python .\check_credit.py
+```
+
+```bash
+python .\learning_embedding.py
+```
+
+```bash
+python .\display_supported_models.py
+```

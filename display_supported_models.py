@@ -1,4 +1,10 @@
 # **************************************************
+API_KEY_NAME: str = "AVALAI_API_KEY"
+BASE_URL: str = "https://api.avalai.ir/v1"
+# **************************************************
+
+
+# **************************************************
 # import os
 # from openai import OpenAI
 # from dotenv import load_dotenv
@@ -7,17 +13,19 @@
 
 # load_dotenv()
 
-# api_key_name = "AVALAI_API_KEY"
-# base_url = "https://api.avalai.ir/v1"
-# api_key = os.getenv(key=api_key_name)
+# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# if not api_key:
+#     print("API Key not found!")
+#     exit()
 
-# client = OpenAI(api_key=api_key, base_url=base_url)
+# client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # models = client.models.list().data
 
 # for model in models:
 #     print(model)
 # **************************************************
+
 
 # **************************************************
 # import os
@@ -59,6 +67,7 @@
 #     )
 # **************************************************
 
+
 # **************************************************
 import os
 from openai import OpenAI
@@ -74,15 +83,16 @@ os.system(command="cls")
 
 load_dotenv()
 
-api_key_name = "AVALAI_API_KEY"
-base_url = "https://api.avalai.ir/v1"
-api_key = os.getenv(key=api_key_name)
+api_key: str | None = os.getenv(key=API_KEY_NAME)
+if not api_key:
+    print("API Key not found!")
+    exit()
 
-client = OpenAI(api_key=api_key, base_url=base_url)
+client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 data = client.models.list().data
 
-suported_models = []
+suported_models: list = []
 for model in data:
     suported_models.append({"id": model.id, "owned_by": model.owned_by})
 

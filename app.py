@@ -3,12 +3,14 @@ API_KEY_NAME: str = "AVALAI_API_KEY"
 BASE_URL: str = "https://api.avalai.ir/v1"
 # **************************************************
 
+
 # **************************************************
 # MODEL_NAME: str = "gpt-4o"
 # MODEL_NAME: str = "gpt-4o-mini"
 MODEL_NAME: str = "gpt-3.5-turbo"
 # MODEL_NAME: str = "gpt-3.5-turbo-instruct"
 # **************************************************
+
 
 # **************************************************
 # Sample 0 - Very Simple Sample
@@ -17,12 +19,16 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # client = OpenAI()
 
-load_dotenv()
-api_key = os.getenv(key=API_KEY_NAME)
-# print(api_key)
-client = OpenAI(api_key=api_key, base_url=BASE_URL)
+api_key: str | None = os.getenv(key=API_KEY_NAME)
+if not api_key:
+    print("API Key not found!")
+    exit()
+
+# client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 response = client.chat.completions.create(
     model=MODEL_NAME,
@@ -34,6 +40,7 @@ print(response.choices[0].message.content)
 print("-" * 50)
 # **************************************************
 
+
 # **************************************************
 # Sample 1
 # **************************************************
@@ -42,7 +49,12 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 # load_dotenv()
-# api_key = os.getenv(key=API_KEY_NAME)
+
+# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# if not api_key:
+#     print("API Key not found!")
+#     exit()
+
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # response = client.chat.completions.create(
@@ -60,6 +72,7 @@ print("-" * 50)
 # print(response.choices[0].message.content)
 # print("-" * 50)
 # **************************************************
+
 
 # **************************************************
 # ChatCompletion(
@@ -102,6 +115,7 @@ print("-" * 50)
 # )
 # **************************************************
 
+
 # **************************************************
 # Sample 2 - Streaming
 # **************************************************
@@ -112,7 +126,12 @@ print("-" * 50)
 # os.system(command="cls")
 
 # load_dotenv()
-# api_key = os.getenv(key=API_KEY_NAME)
+
+# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# if not api_key:
+#     print("API Key not found!")
+#     exit()
+
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # response_stream = client.chat.completions.create(
@@ -131,12 +150,13 @@ print("-" * 50)
 #         break
 
 #     content = chunk.choices[0].delta.content
-#     if content is not None:
+#     if content:
 #         print(content, end="")
 
 # print()
 # print("-" * 50)
 # **************************************************
+
 
 # **************************************************
 # Sample 3
@@ -149,7 +169,12 @@ print("-" * 50)
 # os.system(command="cls")
 
 # load_dotenv()
-# api_key = os.getenv(key=API_KEY_NAME)
+
+# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# if not api_key:
+#     print("API Key not found!")
+#     exit()
+
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # start_time: float = time.time()
@@ -170,6 +195,7 @@ print("-" * 50)
 # print("-" * 50)
 # **************************************************
 
+
 # **************************************************
 # Sample 4
 # **************************************************
@@ -179,7 +205,11 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
+# def chat_completions(
+#     messages: list,
+#     model_name: str = "gpt-3.5-turbo",
+#     temperature: float = 0.7,
+# ) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -191,7 +221,10 @@ print("-" * 50)
 #         temperature=temperature,
 #     )
 
-#     content: str = response.choices[0].message.content
+#     content: str | None = response.choices[0].message.content
+
+#     if not content:
+#         content = "No content received!"
 
 #     return content
 
@@ -204,26 +237,33 @@ print("-" * 50)
 #     os.system(command="cls")
 
 #     load_dotenv()
-#     api_key = os.getenv(key=API_KEY_NAME)
+
+#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
 
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 #     user_prompt: str = input("User: ")
 
-#     messages = []
+#     messages: list = []
 
 #     # نکته مهم: پیغام سیستم، باید فقط
 #     # یک‌بار، و حتما در ابتدا نوشته شود
-#     system_prompt: str = "You are a helpful AI assistant."
-#     system_message = {"role": "system", "content": system_prompt}
-#     messages.append(system_message)
+#     SYSTEM_PROMPT: str = "You are a helpful AI assistant."
+#     SYSTEM_MESSAGE = {"role": "system", "content": SYSTEM_PROMPT}
+#     messages.append(SYSTEM_MESSAGE)
 
 #     user_message = {"role": "user", "content": user_prompt}
 #     messages.append(user_message)
 
 #     start_time: float = time.time()
-#     assistant_answer: str = chat_completions(messages=messages, model_name=MODEL_NAME)
+#     assistant_answer: str = chat_completions(
+#         messages=messages,
+#         model_name=MODEL_NAME,
+#     )
 #     response_time: float = time.time() - start_time
 
 #     print("-" * 50)
@@ -237,6 +277,7 @@ print("-" * 50)
 #     main()
 # **************************************************
 
+
 # **************************************************
 # Sample 5 - Simple Chatbot - Without History
 # **************************************************
@@ -246,7 +287,11 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
+# def chat_completions(
+#     messages: list,
+#     model_name: str = "gpt-3.5-turbo",
+#     temperature: float = 0.7,
+# ) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -258,7 +303,10 @@ print("-" * 50)
 #         temperature=temperature,
 #     )
 
-#     content: str = response.choices[0].message.content
+#     content: str | None = response.choices[0].message.content
+
+#     if not content:
+#         content = "No content received!"
 
 #     return content
 
@@ -271,7 +319,11 @@ print("-" * 50)
 #     os.system(command="cls")
 
 #     load_dotenv()
-#     api_key = os.getenv(key=API_KEY_NAME)
+
+#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
 
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
@@ -282,18 +334,19 @@ print("-" * 50)
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
-#         messages = []
+#         messages: list = []
 
-#         system_prompt: str = "You are a helpful AI assistant."
-#         system_message = {"role": "system", "content": system_prompt}
-#         messages.append(system_message)
+#         SYSTEM_PROMPT: str = "You are a helpful AI assistant."
+#         SYSTEM_MESSAGE = {"role": "system", "content": SYSTEM_PROMPT}
+#         messages.append(SYSTEM_MESSAGE)
 
 #         user_message = {"role": "user", "content": user_prompt}
 #         messages.append(user_message)
 
 #         start_time: float = time.time()
 #         assistant_answer: str = chat_completions(
-#             messages=messages, model_name=MODEL_NAME
+#             messages=messages,
+#             model_name=MODEL_NAME,
 #         )
 #         response_time: float = time.time() - start_time
 
@@ -309,6 +362,7 @@ print("-" * 50)
 #     main()
 # **************************************************
 
+
 # **************************************************
 # Sample 6 - Simple Chatbot - With History
 # **************************************************
@@ -318,7 +372,11 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
+# def chat_completions(
+#     messages: list,
+#     model_name: str = "gpt-3.5-turbo",
+#     temperature: float = 0.7,
+# ) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -330,7 +388,10 @@ print("-" * 50)
 #         temperature=temperature,
 #     )
 
-#     content: str = response.choices[0].message.content
+#     content: str | None = response.choices[0].message.content
+
+#     if not content:
+#         content = "No content received!"
 
 #     return content
 
@@ -343,16 +404,20 @@ print("-" * 50)
 #     os.system(command="cls")
 
 #     load_dotenv()
-#     api_key = os.getenv(key=API_KEY_NAME)
+
+#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
 
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-#     messages = []
+#     messages: list = []
 
-#     system_prompt = "You are a helpful AI assistant."
-#     system_message = {"role": "system", "content": system_prompt}
-#     messages.append(system_message)
+#     SYSTEM_PROMPT: str = "You are a helpful AI assistant."
+#     SYSTEM_MESSAGE = {"role": "system", "content": SYSTEM_PROMPT}
+#     messages.append(SYSTEM_MESSAGE)
 
 #     while True:
 #         user_prompt: str = input("User: ")
@@ -365,7 +430,8 @@ print("-" * 50)
 
 #         start_time: float = time.time()
 #         assistant_answer: str = chat_completions(
-#             messages=messages, model_name=MODEL_NAME
+#             messages=messages,
+#             model_name=MODEL_NAME,
 #         )
 #         response_time: float = time.time() - start_time
 
@@ -384,6 +450,7 @@ print("-" * 50)
 #     main()
 # **************************************************
 
+
 # **************************************************
 # Sample 7 - Simple AI Agent - Without History
 # It is a Perfect Dictionary
@@ -394,7 +461,11 @@ print("-" * 50)
 # from dotenv import load_dotenv
 
 
-# def chat_completions(messages, model_name: str, temperature: float = 0.7) -> str:
+# def chat_completions(
+#     messages,
+#     model_name: str,
+#     temperature: float = 0.7,
+# ) -> str:
 #     """
 #     Chat Completions Function
 #     """
@@ -406,7 +477,10 @@ print("-" * 50)
 #         temperature=temperature,
 #     )
 
-#     content: str = response.choices[0].message.content
+#     content: str | None = response.choices[0].message.content
+
+#     if not content:
+#         content = "No content received!"
 
 #     return content
 
@@ -419,14 +493,18 @@ print("-" * 50)
 #     os.system(command="cls")
 
 #     load_dotenv()
-#     api_key = os.getenv(key=API_KEY_NAME)
+
+#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
 
 #     global client
 #     client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-#     # system_prompt: str = "You are a helpful AI assistant."
+#     # SYSTEM_PROMPT: str = "You are a helpful AI assistant."
 
-#     system_prompt: str = """
+#     SYSTEM_PROMPT: str = """
 #     You are a professional translator assistant from English language to Farsi language.
 
 #     User must write just one word in English language.
@@ -442,8 +520,9 @@ print("-" * 50)
 #     Write the 2 English Antonyms in ##### parts.
 #     Write the 2 sample and simple English sentences in ###### parts.
 
-#     Just write the below text based on above instructions and replace '#' \
-#     with your answers and never write '#' in your result.
+#     Just write the below text, based on above instructions and \
+#     replace '#', ''##', ''###', '####', '#####', '######' \
+#     with your answers and never write '#' in your result at all.
 
 #     Translated to Farsi Language: ##
 #     English Pronounce: ###
@@ -470,9 +549,9 @@ print("-" * 50)
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
-#         messages = []
+#         messages: list = []
 
-#         system_message = {"role": "system", "content": system_prompt}
+#         system_message = {"role": "system", "content": SYSTEM_PROMPT}
 #         messages.append(system_message)
 
 #         user_message = {"role": "user", "content": user_prompt}
@@ -480,7 +559,8 @@ print("-" * 50)
 
 #         start_time: float = time.time()
 #         assistant_answer: str = chat_completions(
-#             messages=messages, model_name=MODEL_NAME
+#             messages=messages,
+#             model_name=MODEL_NAME,
 #         )
 #         response_time: float = time.time() - start_time
 
