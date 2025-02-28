@@ -15,7 +15,7 @@ def get_api_key() -> str:
 
     load_dotenv()
 
-    api_key: str | None = os.getenv(key=constants.API_KEY_NAME)
+    api_key: str | None = os.getenv(key=constants.KEY_NAME_API_KEY)
     if not api_key:
         print("API Key not found!")
         exit()
@@ -47,13 +47,13 @@ def chat_completions(
     )
 
     prompt_tokens: int = response.usage.prompt_tokens
-    completion_tokens = response.usage.completion_tokens
+    completion_tokens: int = response.usage.completion_tokens
     content: str | None = response.choices[0].message.content
 
     if not content:
-        return ("No content received!", 0, 0)
+        return None, 0, 0
 
-    return (content, prompt_tokens, completion_tokens)
+    return content, prompt_tokens, completion_tokens
 
 
 if __name__ == "__main__":

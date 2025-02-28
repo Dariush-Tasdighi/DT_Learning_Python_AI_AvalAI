@@ -5,26 +5,9 @@ Chatbot
 import os
 from pprint import pprint
 import chatbot_database as database
-
-# **********
-ROLE_KEY_NAME: str = "role".strip().lower()
-CONTENT_KEY_NAME: str = "content".strip().lower()
-
-ROLE_USER: str = "user".strip().lower()
-ROLE_SYSTEM: str = "system".strip().lower()
-ROLE_ASSISTANT: str = "assistant".strip().lower()
-# **********
-
-# **********
-# MODEL_NAME: str = "gpt-4o".strip().lower()
-# MODEL_NAME: str = "gpt-4o-mini".strip().lower()
-MODEL_NAME: str = "gpt-3.5-turbo".strip().lower()
-# MODEL_NAME: str = "gpt-3.5-turbo-instruct".strip().lower()
-# **********
+import chatbot_constants as constants
 
 os.system(command="cls")
-
-print("-" * 50)
 
 database.initialize_database()
 
@@ -48,7 +31,7 @@ print(database.get_model_prices(model_name="GPT-4O"))
 print(database.get_model_prices(model_name="gpt-4o"))
 print(database.get_model_prices(model_name="gpt-4o-mini"))
 print(database.get_model_prices(model_name="gpt-3.5-turbo"))
-print(database.get_model_prices(model_name=MODEL_NAME))
+print(database.get_model_prices(model_name=constants.MODEL_NAME))
 
 print("-" * 50)
 
@@ -78,22 +61,22 @@ print("-" * 50)
 
 database.add_user_message(
     username="Dariush",
-    model_name=MODEL_NAME,
-    role=ROLE_SYSTEM,
+    model_name=constants.MODEL_NAME,
+    role=constants.ROLE_SYSTEM,
     content="System Content 1",
 )
 
 database.add_user_message(
     username="Dariush",
-    model_name=MODEL_NAME,
-    role=ROLE_USER,
+    model_name=constants.MODEL_NAME,
+    role=constants.ROLE_USER,
     content="User Content 1",
 )
 
 database.add_user_message(
     username="Dariush",
-    model_name=MODEL_NAME,
-    role=ROLE_ASSISTANT,
+    model_name=constants.MODEL_NAME,
+    role=constants.ROLE_ASSISTANT,
     content="Assistant Content 1",
     prompt_tokens=10,
     prompt_token_price=2,
@@ -102,8 +85,10 @@ database.add_user_message(
     total_price=total_price,
 )
 
-pprint(database.get_user_messages(username="Dariush"))
+pprint(database.get_user_messages_for_ai(username="Dariush"))
 
 print("-" * 50)
+
+pprint(database.get_user_messages(username="Dariush"))
 
 print("End")

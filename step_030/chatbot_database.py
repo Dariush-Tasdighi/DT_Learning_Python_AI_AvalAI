@@ -12,7 +12,7 @@ def create_database() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
     except Exception as ex:
         print(f"#ERROR: Function: {create_database.__name__} - {ex}")
         exit()
@@ -27,7 +27,7 @@ def create_models_table() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = """
@@ -55,7 +55,7 @@ def create_users_table() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = """
@@ -85,7 +85,7 @@ def create_user_messages_table() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = """
@@ -120,7 +120,7 @@ def seed_models_table() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         # ********************
@@ -196,7 +196,7 @@ def seed_users_table() -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         # ********************
@@ -252,7 +252,7 @@ def login(username: str, password: str) -> tuple | None:
         # Username is not Case Sensitive!
         username = username.strip().lower()
 
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = "SELECT * FROM Users WHERE username=? AND password=?"
@@ -283,7 +283,7 @@ def get_user_credit(username: str) -> float:
         # Username is not Case Sensitive!
         username = username.strip().lower()
 
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = "SELECT Credit FROM Users WHERE username=?"
@@ -317,7 +317,7 @@ def get_model_prices(model_name: str) -> tuple:
         # Model name is not Case Sensitive!
         model_name = model_name.strip().lower()
 
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = (
@@ -368,7 +368,7 @@ def update_user_credit(username: str, credit: float) -> None:
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         username: str = username.strip().lower()
@@ -412,14 +412,45 @@ def reduce_user_credit(
 
 def get_user_messages(username: str) -> list:
     """
-    Get User Messages
+    Get User Messages Function
     """
 
     try:
         # Username is not Case Sensitive!
         username = username.strip().lower()
 
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
+        cursor = connection.cursor()
+
+        query: str = "SELECT * FROM UserMessages WHERE Username = ?"
+        values: tuple = (username,)
+        cursor.execute(query, values)
+        result = cursor.fetchall()
+
+        return result
+
+    except Exception as ex:
+        print(f"#ERROR: Function: {get_user_messages.__name__} - {ex}")
+        exit()
+
+    finally:
+        if cursor:
+            cursor.close()
+
+        if connection:
+            connection.close()
+
+
+def get_user_messages_for_ai(username: str) -> list:
+    """
+    Get User Messages for AI Function
+    """
+
+    try:
+        # Username is not Case Sensitive!
+        username = username.strip().lower()
+
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         query: str = "SELECT * FROM UserMessages WHERE Username = ?"
@@ -437,7 +468,7 @@ def get_user_messages(username: str) -> list:
         return messages
 
     except Exception as ex:
-        print(f"#ERROR: Function: {get_user_messages.__name__} - {ex}")
+        print(f"#ERROR: Function: {get_user_messages_for_ai.__name__} - {ex}")
         exit()
 
     finally:
@@ -464,7 +495,7 @@ def add_user_message(
     """
 
     try:
-        connection = sqlite.connect(database=constants.DATABASE_PATHFILE)
+        connection = sqlite.connect(database=constants.DATABASE)
         cursor = connection.cursor()
 
         role = role.strip().lower()

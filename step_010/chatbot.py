@@ -8,14 +8,20 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 # **********
-API_KEY_NAME: str = "AVALAI_API_KEY"
 BASE_URL: str = "https://api.avalai.ir/v1"
 # **********
 
 # **********
-ROLE_KEY_NAME: str = "role".strip().lower()
-CONTENT_KEY_NAME: str = "content".strip().lower()
+TEMPERATURE: float = 0.8
+# **********
 
+# **********
+KEY_NAME_ROLE: str = "role".strip().lower()
+KEY_NAME_CONTENT: str = "content".strip().lower()
+KEY_NAME_API_KEY: str = "AVALAI_API_KEY".strip().upper()
+# **********
+
+# **********
 ROLE_USER: str = "user".strip().lower()
 ROLE_SYSTEM: str = "system".strip().lower()
 ROLE_ASSISTANT: str = "assistant".strip().lower()
@@ -36,7 +42,7 @@ def get_api_key() -> str:
 
     load_dotenv()
 
-    api_key: str | None = os.getenv(key=API_KEY_NAME)
+    api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
     if not api_key:
         print("API Key not found!")
         exit()
@@ -68,13 +74,13 @@ def chat_completions(
     )
 
     prompt_tokens: int = response.usage.prompt_tokens
-    completion_tokens = response.usage.completion_tokens
+    completion_tokens: int = response.usage.completion_tokens
     content: str | None = response.choices[0].message.content
 
     if not content:
-        return (None, 0, 0)
+        return None, 0, 0
 
-    return (content, prompt_tokens, completion_tokens)
+    return content, prompt_tokens, completion_tokens
 
 
 def main() -> None:
@@ -86,8 +92,8 @@ def main() -> None:
 
     SYSTEM_PROMPT: str = "You are a helpful AI assistant."
     SYSTEM_MESSAGE: dict = {
-        ROLE_KEY_NAME: ROLE_SYSTEM,
-        CONTENT_KEY_NAME: SYSTEM_PROMPT,
+        KEY_NAME_ROLE: ROLE_SYSTEM,
+        KEY_NAME_CONTENT: SYSTEM_PROMPT,
     }
 
     messages: list = []
@@ -101,25 +107,29 @@ def main() -> None:
             break
 
         user_message = {
-            ROLE_KEY_NAME: ROLE_USER,
-            CONTENT_KEY_NAME: user_prompt,
+            KEY_NAME_ROLE: ROLE_USER,
+            KEY_NAME_CONTENT: user_prompt,
         }
+
+        messages.append(user_message)
 
         start_time: float = time.time()
 
         assistant_answer, prompt_tokens, completion_tokens = chat_completions(
             messages=messages,
             model_name=MODEL_NAME,
+            temperature=TEMPERATURE,
         )
 
         response_time: float = time.time() - start_time
 
         if assistant_answer:
-            messages.append(user_message)
+            # Remove Last Messages!
+            messages.pop()
 
             assistant_message = {
-                ROLE_KEY_NAME: ROLE_ASSISTANT,
-                CONTENT_KEY_NAME: assistant_answer,
+                KEY_NAME_ROLE: ROLE_ASSISTANT,
+                KEY_NAME_CONTENT: assistant_answer,
             }
 
             messages.append(assistant_message)

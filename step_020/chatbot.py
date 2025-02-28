@@ -25,18 +25,33 @@ def main() -> None:
         if user_prompt.lower() in ["exit", "quit", "bye"]:
             break
 
-        user_message = {"role": "user", "content": user_prompt}
+        user_message = {
+            constants.KEY_NAME_ROLE: constants.ROLE_USER,
+            constants.KEY_NAME_CONTENT: user_prompt,
+        }
+
         messages.append(user_message)
 
         start_time: float = time.time()
+
         assistant_answer, prompt_tokens, completion_tokens = functions.chat_completions(
             messages=messages,
             model_name=constants.MODEL_NAME,
+            temperature=constants.TEMPERATURE,
         )
+
         response_time: float = time.time() - start_time
 
-        assistant_message = {"role": "assistant", "content": assistant_answer}
-        messages.append(assistant_message)
+        if assistant_answer:
+            # Remove Last Messages!
+            messages.pop()
+
+            assistant_message = {
+                constants.KEY_NAME_ROLE: constants.ROLE_ASSISTANT,
+                constants.KEY_NAME_CONTENT: assistant_answer,
+            }
+
+            messages.append(assistant_message)
 
         print("-" * 50)
         print(assistant_answer)

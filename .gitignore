@@ -1,6 +1,6 @@
 .db
 .env
-.data/
+data/
 .venv/
 .vscode/
 __pycache__/
