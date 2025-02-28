@@ -230,7 +230,7 @@ def seed_users_table() -> None:
 
 def initialize() -> None:
     """
-    Initialize Function
+    InitializeFunction
     """
 
     create_database()
@@ -280,7 +280,7 @@ def get_user_credit(username: str) -> float:
     """
 
     try:
-        # Username is not case sensitive!
+        # Username is not Case Sensitive!
         username = username.strip().lower()
 
         connection = sqlite.connect(database=constants.DATABASE)
