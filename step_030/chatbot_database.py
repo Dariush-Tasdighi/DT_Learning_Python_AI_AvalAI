@@ -13,9 +13,11 @@ def create_database() -> None:
 
     try:
         connection = sqlite.connect(database=constants.DATABASE)
+
     except Exception as ex:
         print(f"#ERROR: Function: {create_database.__name__} - {ex}")
         exit()
+
     finally:
         if connection:
             connection.close()
@@ -36,11 +38,14 @@ def create_models_table() -> None:
             PromptTokenPrice     REAL NOT NULL,
             CompletionTokenPrice REAL NOT NULL);
         """
+
         cursor.execute(query)
         connection.commit()
+
     except Exception as ex:
         print(f"#ERROR: Function: {create_models_table.__name__} - {ex}")
         exit()
+
     finally:
         if cursor:
             cursor.close()
@@ -64,6 +69,7 @@ def create_users_table() -> None:
             Password TEXT NOT NULL,
             Credit   REAL NOT NULL);
         """
+
         cursor.execute(query)
         connection.commit()
 
@@ -103,9 +109,11 @@ def create_user_messages_table() -> None:
 
         cursor.execute(query)
         connection.commit()
+
     except Exception as ex:
         print(f"#ERROR: Function: {create_user_messages_table.__name__} - {ex}")
         exit()
+
     finally:
         if cursor:
             cursor.close()
@@ -179,9 +187,11 @@ def seed_models_table() -> None:
             cursor.execute(query, values)
             connection.commit()
         # ********************
+
     except Exception as ex:
         print(f"#ERROR: Function: {seed_models_table.__name__} - {ex}")
         exit()
+
     finally:
         if cursor:
             cursor.close()
@@ -217,6 +227,7 @@ def seed_users_table() -> None:
             cursor.execute(query, values)
             connection.commit()
         # ********************
+
     except Exception as ex:
         print(f"#ERROR: Function: {seed_users_table.__name__} - {ex}")
         exit()

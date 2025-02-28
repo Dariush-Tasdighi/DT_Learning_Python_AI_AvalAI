@@ -42,10 +42,10 @@ def main() -> None:
 
         response_time: float = time.time() - start_time
 
-        if assistant_answer:
+        if not assistant_answer:
             # Remove Last Messages!
             messages.pop()
-
+        else:
             assistant_message = {
                 constants.KEY_NAME_ROLE: constants.ROLE_ASSISTANT,
                 constants.KEY_NAME_CONTENT: assistant_answer,
