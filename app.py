@@ -1,13 +1,13 @@
 # **************************************************
-API_KEY_NAME: str = "AVALAI_API_KEY"
+KEY_NAME_API_KEY: str = "AVALAI_API_KEY"
 BASE_URL: str = "https://api.avalai.ir/v1"
 # **************************************************
 
 
 # **************************************************
-# MODEL_NAME: str = "gpt-4o"
+MODEL_NAME: str = "gpt-4o"
 # MODEL_NAME: str = "gpt-4o-mini"
-MODEL_NAME: str = "gpt-3.5-turbo"
+# MODEL_NAME: str = "gpt-3.5-turbo"
 # MODEL_NAME: str = "gpt-3.5-turbo-instruct"
 # **************************************************
 
@@ -25,7 +25,7 @@ load_dotenv()
 
 # client = OpenAI()
 
-api_key: str | None = os.getenv(key=API_KEY_NAME)
+api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 if not api_key:
     print("API Key not found!")
     exit()
@@ -58,7 +58,7 @@ print("-" * 50)
 
 # load_dotenv()
 
-# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 # if not api_key:
 #     print("API Key not found!")
 #     exit()
@@ -139,14 +139,14 @@ print("-" * 50)
 
 # load_dotenv()
 
-# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 # if not api_key:
 #     print("API Key not found!")
 #     exit()
 
 # client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
-# response_stream = client.chat.completions.create(
+# response = client.chat.completions.create(
 #     stream=True,
 #     temperature=0.7,
 #     model=MODEL_NAME,
@@ -157,7 +157,11 @@ print("-" * 50)
 
 # print("-" * 50)
 
-# for chunk in response_stream:
+# # for chunk in response:
+# #     content = chunk.choices[0].delta.content
+# #     print(content, end="")
+
+# for chunk in response:
 #     if chunk.choices[0].finish_reason == "stop":
 #         break
 
@@ -182,7 +186,7 @@ print("-" * 50)
 
 # load_dotenv()
 
-# api_key: str | None = os.getenv(key=API_KEY_NAME)
+# api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 # if not api_key:
 #     print("API Key not found!")
 #     exit()
@@ -228,7 +232,7 @@ print("-" * 50)
 
 #     load_dotenv()
 
-#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 #     if not api_key:
 #         print("API Key not found!")
 #         exit()
@@ -237,7 +241,7 @@ print("-" * 50)
 
 
 # def chat_completions(
-#     messages: list,
+#     messages: list[dict],
 #     temperature: float = 0.7,
 #     model_name: str = "gpt-3.5-turbo",
 # ) -> str:
@@ -271,9 +275,10 @@ print("-" * 50)
 
 #     os.system(command="cls")
 
+#     print("=" * 50)
 #     user_prompt: str = input("User: ")
 
-#     messages: list = []
+#     messages: list[dict] = []
 
 #     # نکته مهم: پیغام سیستم، باید فقط
 #     # یک‌بار، و حتما در ابتدا نوشته شود
@@ -297,7 +302,8 @@ print("-" * 50)
 #     print(assistant_answer)
 #     print("-" * 50)
 #     print(f"Full response received {response_time:.2f} seconds after request.")
-#     print("-" * 50)
+#     print("=" * 50)
+#     print()
 
 
 # if __name__ == "__main__":
@@ -321,7 +327,7 @@ print("-" * 50)
 
 #     load_dotenv()
 
-#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 #     if not api_key:
 #         print("API Key not found!")
 #         exit()
@@ -330,7 +336,7 @@ print("-" * 50)
 
 
 # def chat_completions(
-#     messages: list,
+#     messages: list[dict],
 #     temperature: float = 0.7,
 #     model_name: str = "gpt-3.5-turbo",
 # ) -> str:
@@ -371,7 +377,7 @@ print("-" * 50)
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
-#         messages: list = []
+#         messages: list[dict] = []
 
 #         SYSTEM_PROMPT: str = "You are a helpful AI assistant."
 #         SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
@@ -418,7 +424,7 @@ print("-" * 50)
 
 #     load_dotenv()
 
-#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 #     if not api_key:
 #         print("API Key not found!")
 #         exit()
@@ -427,7 +433,7 @@ print("-" * 50)
 
 
 # def chat_completions(
-#     messages: list,
+#     messages: list[dict],
 #     temperature: float = 0.7,
 #     model_name: str = "gpt-3.5-turbo",
 # ) -> str:
@@ -461,7 +467,7 @@ print("-" * 50)
 
 #     os.system(command="cls")
 
-#     messages: list = []
+#     messages: list[dict] = []
 
 #     SYSTEM_PROMPT: str = "You are a helpful AI assistant."
 #     SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
@@ -486,7 +492,7 @@ print("-" * 50)
 
 #         response_time: float = time.time() - start_time
 
-#         assistant_message = {"role": "assistant", "content": assistant_answer}
+#         assistant_message: dict = {"role": "assistant", "content": assistant_answer}
 #         messages.append(assistant_message)
 
 #         print("-" * 50)
@@ -518,7 +524,7 @@ print("-" * 50)
 
 #     load_dotenv()
 
-#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 #     if not api_key:
 #         print("API Key not found!")
 #         exit()
@@ -527,7 +533,7 @@ print("-" * 50)
 
 
 # def chat_completions(
-#     messages: list,
+#     messages: list[dict],
 #     temperature: float = 0.7,
 #     model_name: str = "gpt-3.5-turbo",
 # ) -> tuple:
@@ -551,10 +557,11 @@ print("-" * 50)
 #     content: str | None = response.choices[0].message.content
 
 #     if not content:
-#         return "No content received!", 0, 0
-#         # return ("No content received!", 0, 0)
+#         return None, 0, 0
+#         # return (None, 0, 0)
 
 #     return content, prompt_tokens, completion_tokens
+#     # return (content, prompt_tokens, completion_tokens)
 
 
 # def main() -> None:
@@ -564,7 +571,7 @@ print("-" * 50)
 
 #     os.system(command="cls")
 
-#     messages: list = []
+#     messages: list[dict] = []
 
 #     SYSTEM_PROMPT: str = "You are a helpful AI assistant."
 #     SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
@@ -588,6 +595,16 @@ print("-" * 50)
 #         )
 
 #         response_time: float = time.time() - start_time
+
+#         if not assistant_answer:
+#             messages.pop()
+
+#             print("-" * 50)
+#             print("No content received!")
+#             print("=" * 50)
+#             print()
+
+#             continue
 
 #         assistant_message = {"role": "assistant", "content": assistant_answer}
 #         messages.append(assistant_message)
@@ -626,7 +643,7 @@ print("-" * 50)
 
 #     load_dotenv()
 
-#     api_key: str | None = os.getenv(key=API_KEY_NAME)
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
 #     if not api_key:
 #         print("API Key not found!")
 #         exit()
@@ -635,7 +652,7 @@ print("-" * 50)
 
 
 # def chat_completions(
-#     messages: list,
+#     messages: list[dict],
 #     temperature: float = 0.7,
 #     model_name: str = "gpt-3.5-turbo",
 # ) -> str:
@@ -760,7 +777,7 @@ print("-" * 50)
 #         if user_prompt.lower() in ["exit", "quit", "bye"]:
 #             break
 
-#         messages: list = []
+#         messages: list[dict] = []
 
 #         SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
 #         messages.append(SYSTEM_MESSAGE)
@@ -771,6 +788,7 @@ print("-" * 50)
 #         start_time: float = time.time()
 
 #         assistant_answer: str = chat_completions(
+#             temperature=0.0,
 #             messages=messages,
 #             model_name=MODEL_NAME,
 #         )
@@ -787,4 +805,126 @@ print("-" * 50)
 
 # if __name__ == "__main__":
 #     main()
+# **************************************************
+
+
+# **************************************************
+# Sample 9 - Simple AI Agent - Without History
+# It is a Perfect Text Translator
+# **************************************************
+# می‌خواهم برای من به زبان انگلیسی، یک System Prompt حرفه‌ای بنویسی که آن را برای Model خودم تعریف کنم، تا موارد ذیل را انجام دهد:
+# ۱. مدل من، یک مترجم حرفه‌ای، از زبان انگلیسی به زبان فارسی باشد.
+# ۲. مدل من، باید متن را به صورت کاملا ادبی، روان، شیوا و سلیس، به زبان فارسی ترجمه کند.
+# ۳. مدل من، باید صرفا متن را به فارسی ترجمه نماید و نباید از کلمات انگلیسی در متن استفاده کند.
+# ۴. مدل من، باید از کلماتی استفاده کند که کاملا با معنی بوده و مرتبط با متن پاراگراف مربوطه باشد، لذا باید در انتخاب کلمات بسیار دقت کند.
+# ۵. مدل من، باید در هنگام ترجمه، تمام اصول آیین نگارش را رعایت کند.
+# ۶. مدل من، باید در کلماتی که به زبان فارسی می‌نویسد، نیم فاصله‌ها را به دقت رعایت کند:
+# - به عنوان مثال، به جای نوشتن کلمه 'می شود'، باید بنویسد: 'می‌شود'.
+# - به عنوان مثال، به جای نوشتن کلمه 'زمینه ها'، باید بنویسد: زمینه‌ها.
+# **************************************************
+# import os
+# import time
+# from openai import OpenAI
+# from dotenv import load_dotenv
+
+# SYSTEM_PROMPT: str = """
+# You are a professional translator specializing in translating texts from English to Persian (Farsi) language.
+# Your translations must meet the following criteria:
+
+# Literary and Fluent Language: Translate texts into refined, elegant, and smooth Persian (Farsi) that reads as highly literary and stylistically polished.
+# Exclusively Persian (Farsi) Output: Produce translations solely in Persian (Farsi). Do not include any English words in your output.
+# Precise Word Choice: Choose words with great care, ensuring that every term precisely conveys the original meaning and fits the context of each paragraph.
+# Adherence to Persian (Farsi) Orthography: Follow all standard rules of Persian (Farsi) writing, including grammar and punctuation.
+# Accurate Use of Half-Spaces: Ensure correct usage of half-spaces in Persian (Farsi). For example, write "می‌شود" instead of "می شود" and "زمینه‌ها" instead of "زمینه ها".
+# Never include any English, Chinese, Indian or other non-Persian words in your translations. Never use 切 or 能 or इतन words in your translations.
+# Your responses should strictly adhere to these guidelines to ensure the highest quality translation.
+# """
+
+
+# def get_api_key() -> str:
+#     """
+#     Get API Key Function
+#     """
+
+#     load_dotenv()
+
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
+
+#     return api_key
+
+
+# def chat_completions(
+#     messages: list[dict],
+#     temperature: float = 0.7,
+#     model_name: str = "gpt-3.5-turbo",
+# ) -> str:
+#     """
+#     Chat Completions Function
+#     """
+
+#     api_key: str = get_api_key()
+
+#     client = OpenAI(api_key=api_key, base_url=BASE_URL)
+
+#     response = client.chat.completions.create(
+#         stream=False,
+#         model=model_name,
+#         messages=messages,
+#         temperature=temperature,
+#     )
+
+#     content: str | None = response.choices[0].message.content
+
+#     if not content:
+#         content = "No content received!"
+
+#     return content
+
+
+# def main() -> None:
+#     """
+#     Main Function
+#     """
+
+#     os.system(command="cls")
+
+#     source_file_path: str = "./files/sample.txt"
+#     target_file_path: str = "./files/sample_translated.txt"
+
+#     with open(file=source_file_path, mode="rt", encoding="utf-8") as source_file:
+#         with open(file=target_file_path, mode="wt", encoding="utf-8") as target_file:
+#             paragraphs: list[str] = source_file.read().split("\n\n")
+
+#             # print(len(paragraphs))  # TODO
+#             # exit() # TODO
+
+#             for paragraph in paragraphs:
+#                 # print("-" * 50)  # TODO
+#                 # print(paragraph)  # TODO
+
+#                 messages: list[dict] = []
+
+#                 SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
+#                 messages.append(SYSTEM_MESSAGE)
+
+#                 user_message: dict = {"role": "user", "content": paragraph}
+#                 messages.append(user_message)
+
+#                 assistant_answer: str = chat_completions(
+#                     temperature=0.0,
+#                     messages=messages,
+#                     model_name=MODEL_NAME,
+#                 )
+
+#                 target_file.write(assistant_answer)
+#                 target_file.write("\n\n")
+
+
+# if __name__ == "__main__":
+#     main()
+
+#     print("Finished.")
 # **************************************************
