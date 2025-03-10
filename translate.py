@@ -1,5 +1,5 @@
 # **************************************************
-# Sample 9 - Simple AI Agent - Without History
+# Simple AI Agent - Without History
 # It is a Perfect Text Translator
 # **************************************************
 # می‌خواهم به زبان انگلیسی، یک System Prompt حرفه‌ای بنویسی که آن را برای Model خودم تعریف نمایم، تا موارد ذیل را به درستی و با دقت انجام دهد:
@@ -13,7 +13,6 @@
 # - به عنوان مثال، به جای نوشتن کلمه 'زمینه ها'، باید بنویسد: زمینه‌ها.
 # **************************************************
 import os
-import time
 from openai import OpenAI
 from dotenv import load_dotenv
 
