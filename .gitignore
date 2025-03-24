@@ -1,6 +1,9 @@
 .db
 .env
+
 data/
+speech_files/
+
 .venv/
 .vscode/
 __pycache__/
