@@ -3,6 +3,7 @@ import time
 from openai import OpenAI
 from dotenv import load_dotenv
 
+FILE_PREFIX: str = "12"
 WAITING_IN_SECONDS: float = 30
 AUDIO_FILE_FORMAT: str = "mp3".lower()
 KEY_NAME_API_KEY: str = "AVALAI_API_KEY".upper()
@@ -56,8 +57,6 @@ user_prompt: str = """
 """
 user_prompt = user_prompt.strip()
 
-prefix: str = "11"
-
 for voice in VOICES:
     print("Voice:", voice)
     for model in AUDIO_MODELS:
@@ -70,7 +69,7 @@ for voice in VOICES:
             response_format=AUDIO_FILE_FORMAT,
         )
 
-        speech_file: str = f"{prefix}_{voice}_{model}.{AUDIO_FILE_FORMAT}"
+        speech_file: str = f"{FILE_PREFIX}_{voice}_{model}.{AUDIO_FILE_FORMAT}"
         speech_file_path: str = f"../speech_files/{speech_file}"
         with open(file=speech_file_path, mode="wb") as file:
             for chunk in response.iter_bytes():

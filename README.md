@@ -99,6 +99,10 @@ python -m pip install -U tiktoken
 ```
 
 ```bash
+python -m pip install -U pygame-ce
+```
+
+```bash
 python -m pip install -U python-dotenv
 ```
 
