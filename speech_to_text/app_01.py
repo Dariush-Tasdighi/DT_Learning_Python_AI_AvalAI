@@ -1,62 +1,55 @@
 import os
 import time
-import whisper
 from openai import OpenAI
 from dotenv import load_dotenv
 
+STT_TEMPRETURE: float = 0.0
+STT_LANGUAGE: str = "fa".lower()
+STT_MODEL: str = "whisper-1".lower()
 AUDIO_FILE_FORMAT: str = "mp3".lower()
 KEY_NAME_API_KEY: str = "AVALAI_API_KEY".upper()
 BASE_URL: str = "https://api.avalai.ir/v1".lower()
 
-STT_MODELS: str = "whisper-1"
 
-os.system(command="cls")
+def main() -> None:
+    """
+    Main Function
+    """
 
-load_dotenv()
+    os.system(command="cls")
 
-api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
-if not api_key:
-    print("API Key not found!")
-    exit()
+    load_dotenv()
 
-client = OpenAI(
-    api_key=api_key,
-    base_url=BASE_URL,
-)
+    api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
+    if not api_key:
+        print("API Key not found!")
+        exit()
 
-audio_file = open("../speech_files/sample_01.mp3", "rb")
-transcription = client.audio.transcriptions.create(
-    model="whisper-1", 
-    file=audio_file, 
-    response_format="text"
-)
-print(transcription)
+    client = OpenAI(
+        api_key=api_key,
+        base_url=BASE_URL,
+    )
 
-# user_prompt: str = """
-# سَلام داریوش جان، خُوبی؟ دِلَم خِیلی بَرات تَنگ شُده! خِیلی وَقتِه کِه نَدیدَمِت! کِی می‌تونَم دوباره تُو رو بِبینَم؟
-# """
-# user_prompt = user_prompt.strip()
+    audio_path_file: str = "../speech_files/sample_01.mp3"
 
-# for voice in VOICES:
-#     print("Voice:", voice)
-#     for model in AUDIO_MODELS:
-#         print("Model:", model)
+    with open(file=audio_path_file, mode="rb") as file:
+        start_time: float = time.time()
 
-#         response = client.audio.speech.create(
-#             model=model,
-#             voice=voice,
-#             input=user_prompt,
-#             response_format=AUDIO_FILE_FORMAT,
-#         )
+        transcription = client.audio.transcriptions.create(
+            file=file,
+            model=STT_MODEL,
+            language=STT_LANGUAGE,
+            temperature=STT_TEMPRETURE,
+        )
 
-#         speech_file: str = f"{FILE_PREFIX}_{voice}_{model}.{AUDIO_FILE_FORMAT}"
-#         speech_file_path: str = f"../speech_files/{speech_file}"
-#         with open(file=speech_file_path, mode="wb") as file:
-#             for chunk in response.iter_bytes():
-#                 file.write(chunk)
+        response_time: float = time.time() - start_time
 
-#         print(f"\nFile: {speech_file} created.")
-#         print("-" * 50)
-#         print(f"Waiting {WAITING_IN_SECONDS} seconds...")
-#         time.sleep(WAITING_IN_SECONDS)
-#         print("-" * 50)
+        print("=" * 50)
+        print(transcription.text)
+        print("-" * 50)
+        print(f"Full response received {response_time:.2f} seconds after request.")
+        print("=" * 50)
+
+
+if __name__ == "__main__":
+    main()

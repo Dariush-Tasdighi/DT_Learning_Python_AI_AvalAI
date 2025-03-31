@@ -175,7 +175,7 @@ def main() -> None:
                 audio_model_name=AUDIO_MODEL_NAME,
             )
 
-        print("-" * 50)
+        print("=" * 50)
         print(assistant_answer)
         print("-" * 50)
         print("Prompt Tokens:", prompt_tokens)

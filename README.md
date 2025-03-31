@@ -107,6 +107,14 @@ python -m pip install -U python-dotenv
 ```
 
 ```bash
+python -m pip install -U openai-whisper
+```
+
+```bash
+python -m pip install -U SpeechRecognition
+```
+
+```bash
 python -m pip list
 ```
 
@@ -138,3 +146,24 @@ python .\learning_embedding.py
 ```bash
 python .\display_supported_models.py
 ```
+
+---
+
+### References
+
+##### Solving AI Problems in Windows
+
+- https://pytorch.org
+    - pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+- https://vrgl.ir/T3JLR
+- https://developer.nvidia.com/cuda-downloads
+
+##### Whisper
+
+- https://github.com/openai/whisper
+- https://pypi.org/project/openai-whisper
+
+##### Speech Recognition
+
+- https://pypi.org/project/SpeechRecognition
+- https://github.com/Uberi/speech_recognition
