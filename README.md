@@ -68,7 +68,7 @@
 
 - https://realpython.com/playing-and-recording-sound-python
 
-### Setup
+### Setup Environment
 
 ```bash
 python -m venv .venv
@@ -167,3 +167,5 @@ python .\display_supported_models.py
 
 - https://pypi.org/project/SpeechRecognition
 - https://github.com/Uberi/speech_recognition
+
+---

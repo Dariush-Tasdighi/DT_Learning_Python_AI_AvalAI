@@ -3,43 +3,56 @@ import torch
 import whisper
 import speech_recognition as sr
 
-DURATION: float = 2
-LANGUAGE: str = "fa".lower()
+STT_TEMPRETURE: float = 0.0
+STT_LANGUAGE: str = "fa".lower()
 STT_MODEL: str = "turbo".lower()
-TEMP_AUDIO_FILE: str = "../speech_files/temp.wav"
+
+MICROPHONE_DURATION: int = 1
+MICROPHONE_DEVICE_INDEX: int = 1
+MICROPHONE_CHUNK_SIZE: int = 1024
+MICROPHONE_FRAME_RATE: int = 48_000
+
+TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
 
 
-def listen(audio_file: str) -> str:
+def listen(audio_file_path: str) -> None:
     """
-    Listen Function
+    Listen to Microphone and Save Audio to File.
     """
 
     print("Listening...")
 
-    recognizer = sr.Recognizer()
+    with sr.Microphone(
+        chunk_size=MICROPHONE_CHUNK_SIZE,
+        sample_rate=MICROPHONE_FRAME_RATE,
+        device_index=MICROPHONE_DEVICE_INDEX,
+    ) as microphone:
+        recognizer = sr.Recognizer()
 
-    with sr.Microphone() as source:
         recognizer.adjust_for_ambient_noise(
-            source=source,
-            duration=DURATION,
+            source=microphone,
+            duration=MICROPHONE_DURATION,
         )
 
-        audio = recognizer.listen(source=source)
+        audio = recognizer.listen(source=microphone)
 
-        with open(file=audio_file, mode="wb") as file:
+        with open(file=audio_file_path, mode="wb") as file:
             data = audio.get_wav_data()
             file.write(data)
 
 
-def convert_speech_to_text(audio_file: str) -> str:
+def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
     """
-    Convert Speech to Text Function
+    Trasncribe Speech to Text using Local / Offline LLM Model.
     """
 
-    print("Converting Speech to Text...")
+    print("Trasncribing Speech to Text using Local / Offline LLM Model...")
+
+    if not os.path.exists(path=audio_file_path):
+        print(f"[-] Audio file not found: {audio_file_path}")
+        exit()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    # print("Device:", device)
 
     model = whisper.load_model(
         device=device,
@@ -47,21 +60,27 @@ def convert_speech_to_text(audio_file: str) -> str:
     )
 
     result = model.transcribe(
-        temperature=0.0,
-        audio=audio_file,
-        language=LANGUAGE,
+        language=STT_LANGUAGE,
+        audio=audio_file_path,
+        temperature=STT_TEMPRETURE,
     )
 
     return result["text"]
 
 
 def main() -> None:
+    """
+    Main Function.
+    """
+
     os.system(command="cls")
 
     while True:
         try:
-            listen(audio_file=TEMP_AUDIO_FILE)
-            text: str = convert_speech_to_text(audio_file=TEMP_AUDIO_FILE)
+            listen(audio_file_path=TEMP_AUDIO_FILE_PATH)
+            text: str = transcribe_speech_to_text_offline(
+                audio_file_path=TEMP_AUDIO_FILE_PATH
+            )
 
             if text.strip().lower() in ["خدا نگهدار"]:
                 break
@@ -70,8 +89,11 @@ def main() -> None:
             print(text)
             print("=" * 50)
 
-        except Exception as ex:
-            print(f"#ERR: {ex}")
+        except KeyboardInterrupt:
+            break
+
+        except Exception as error:
+            print(f"[-] {error}")
 
 
 if __name__ == "__main__":

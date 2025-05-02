@@ -59,9 +59,9 @@
 
 #     audio = recognizer.listen(source=microphone)
 
-#     audio_path_file: str = "../speech_files/temp.wav"
+#     audio_file_path: str = "../speech_files/LiveRecording.mp3"
 
-#     with open(file=audio_path_file, mode="wb") as file:
+#     with open(file=audio_file_path, mode="wb") as file:
 #         data = audio.get_wav_data()
 #         file.write(data)
 
@@ -81,7 +81,7 @@
 
 # def main() -> None:
 #     """
-#     Main Function
+#     Main Function.
 #     """
 
 #     os.system(command="cls")
@@ -102,9 +102,9 @@
 
 #         audio = recognizer.listen(source=microphone)
 
-#         audio_path_file: str = "../speech_files/temp.wav"
+#         audio_file_path: str = "../speech_files/LiveRecording.mp3"
 
-#         with open(file=audio_path_file, mode="wb") as file:
+#         with open(file=audio_file_path, mode="wb") as file:
 #             data = audio.get_wav_data()
 #             file.write(data)
 
@@ -115,6 +115,7 @@
 #     main()
 # **************************************************
 
+
 # **************************************************
 import os
 import speech_recognition as sr
@@ -124,12 +125,12 @@ MICROPHONE_DEVICE_INDEX: int = 1
 MICROPHONE_CHUNK_SIZE: int = 1024
 MICROPHONE_FRAME_RATE: int = 48_000
 
-TEMP_AUDIO_FILE_PATH: str = "../speech_files/temp.wav"
+TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
 
 
 def listen(audio_file_path: str) -> None:
     """
-    Listen Function
+    Listen to Microphone and Save Audio to File.
     """
 
     print("Listening...")

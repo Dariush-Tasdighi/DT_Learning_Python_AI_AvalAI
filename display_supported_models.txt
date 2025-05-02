@@ -1,97 +1,116 @@
-Id: anthropic.claude-3-5-haiku-20241022-v1:0           Owned By: anthropic
-Id: anthropic.claude-3-5-sonnet-20240620-v1:0          Owned By: anthropic
-Id: anthropic.claude-3-5-sonnet-20241022-v2:0          Owned By: anthropic
-Id: anthropic.claude-3-7-sonnet-20250219-v1:0          Owned By: anthropic
-Id: anthropic.claude-3-haiku-20240307-v1:0             Owned By: anthropic
-Id: anthropic.claude-3-opus-20240229-v1:0              Owned By: anthropic
-Id: anthropic.claude-3-sonnet-20240229-v1:0            Owned By: anthropic
-Id: babbage-002                                        Owned By: openai
-Id: chatgpt-4o-latest                                  Owned By: openai
-Id: cohere.command-light-text-v14                      Owned By: cohere
-Id: cohere.command-r-plus-v1:0                         Owned By: cohere
-Id: cohere.command-r-v1:0                              Owned By: cohere
-Id: cohere.command-text-v14                            Owned By: cohere
-Id: cohere.embed-english-v3                            Owned By: cohere
-Id: cohere.embed-multilingual-v3                       Owned By: cohere
-Id: dall-e-2                                           Owned By: openai
-Id: dall-e-3                                           Owned By: openai
-Id: davinci-002                                        Owned By: openai
-Id: deepseek-chat                                      Owned By: deepseek
-Id: deepseek-coder                                     Owned By: deepseek
-Id: deepseek-reasoner                                  Owned By: deepseek
-Id: gemini-1.5-flash                                   Owned By: google
-Id: gemini-1.5-flash-001                               Owned By: google
-Id: gemini-1.5-flash-002                               Owned By: google
-Id: gemini-1.5-flash-8b                                Owned By: google
-Id: gemini-1.5-flash-8b-exp-0827                       Owned By: google
-Id: gemini-1.5-flash-8b-exp-0924                       Owned By: google
-Id: gemini-1.5-flash-exp-0827                          Owned By: google
-Id: gemini-1.5-flash-latest                            Owned By: google
-Id: gemini-1.5-pro                                     Owned By: google
-Id: gemini-1.5-pro-001                                 Owned By: google
-Id: gemini-1.5-pro-002                                 Owned By: google
-Id: gemini-1.5-pro-exp-0801                            Owned By: google
-Id: gemini-1.5-pro-exp-0827                            Owned By: google
-Id: gemini-1.5-pro-latest                              Owned By: google
-Id: gemini-2.0-flash                                   Owned By: google
-Id: gemini-2.0-flash-exp                               Owned By: google
-Id: gemini-2.0-flash-lite                              Owned By: google
-Id: gemini-2.0-flash-thinking-exp                      Owned By: google
-Id: gemini-2.0-flash-thinking-exp-01-21                Owned By: google
-Id: gemini-2.0-pro-exp-02-05                           Owned By: google
-Id: gemini-exp-1114                                    Owned By: google
-Id: gemini-exp-1206                                    Owned By: google
-Id: gemini-pro                                         Owned By: google
-Id: gpt-3.5-turbo                                      Owned By: openai
-Id: gpt-3.5-turbo-0125                                 Owned By: openai
-Id: gpt-3.5-turbo-0301                                 Owned By: openai
-Id: gpt-3.5-turbo-0613                                 Owned By: openai
-Id: gpt-3.5-turbo-1106                                 Owned By: openai
-Id: gpt-3.5-turbo-16k                                  Owned By: openai
-Id: gpt-3.5-turbo-16k-0613                             Owned By: openai
-Id: gpt-3.5-turbo-instruct                             Owned By: openai
-Id: gpt-4                                              Owned By: openai
-Id: gpt-4-0125-preview                                 Owned By: openai
-Id: gpt-4-0613                                         Owned By: openai
-Id: gpt-4-1106-preview                                 Owned By: openai
-Id: gpt-4-turbo                                        Owned By: openai
-Id: gpt-4-turbo-2024-04-09                             Owned By: openai
-Id: gpt-4.5-preview                                    Owned By: openai
-Id: gpt-4.5-preview-2025-02-27                         Owned By: openai
-Id: gpt-4o                                             Owned By: openai
-Id: gpt-4o-2024-05-13                                  Owned By: openai
-Id: gpt-4o-2024-08-06                                  Owned By: openai
-Id: gpt-4o-2024-11-20                                  Owned By: openai
-Id: gpt-4o-audio-preview                               Owned By: openai
-Id: gpt-4o-audio-preview-2024-10-01                    Owned By: openai
-Id: gpt-4o-audio-preview-2024-12-17                    Owned By: openai
-Id: gpt-4o-mini                                        Owned By: openai
-Id: gpt-4o-mini-2024-07-18                             Owned By: openai
-Id: gpt-4o-mini-audio-preview                          Owned By: openai
-Id: gpt-4o-mini-audio-preview-2024-12-17               Owned By: openai
-Id: meta.llama3-1-405b-instruct-v1:0                   Owned By: meta
-Id: meta.llama3-1-70b-instruct-v1:0                    Owned By: meta
-Id: meta.llama3-1-8b-instruct-v1:0                     Owned By: meta
-Id: meta.llama3-2-11b-instruct-v1:0                    Owned By: meta
-Id: meta.llama3-2-1b-instruct-v1:0                     Owned By: meta
-Id: meta.llama3-3-70b-instruct-v1:0                    Owned By: meta
-Id: mistral.mistral-large-2407-v1:0                    Owned By: mistral ai
-Id: o1                                                 Owned By: openai
-Id: o1-2024-12-17                                      Owned By: openai
-Id: o1-mini                                            Owned By: openai
-Id: o1-mini-2024-09-12                                 Owned By: openai
-Id: o1-preview                                         Owned By: openai
-Id: o1-preview-2024-09-12                              Owned By: openai
-Id: o3-mini                                            Owned By: openai
-Id: o3-mini-2025-01-31                                 Owned By: openai
-Id: omni-moderation-2024-09-26                         Owned By: openai
-Id: omni-moderation-latest                             Owned By: openai
-Id: text-embedding-3-large                             Owned By: openai
-Id: text-embedding-3-small                             Owned By: openai
-Id: text-embedding-ada-002                             Owned By: openai
-Id: text-moderation-latest                             Owned By: openai
-Id: text-moderation-stable                             Owned By: openai
-Id: tts-1                                              Owned By: openai
-Id: tts-1-hd                                           Owned By: openai
-Id: whisper-1                                          Owned By: openai
+anthropic.claude-3-5-haiku-20241022-v1:0           Owned By: anthropic
+anthropic.claude-3-5-sonnet-20240620-v1:0          Owned By: anthropic
+anthropic.claude-3-5-sonnet-20241022-v2:0          Owned By: anthropic
+anthropic.claude-3-7-sonnet-20250219-v1:0          Owned By: anthropic
+anthropic.claude-3-haiku-20240307-v1:0             Owned By: anthropic
+anthropic.claude-3-opus-20240229-v1:0              Owned By: anthropic
+anthropic.claude-3-sonnet-20240229-v1:0            Owned By: anthropic
+babbage-002                                        Owned By: 31mopenai
+chatgpt-4o-latest                                  Owned By: 31mopenai
+cohere.command-light-text-v14                      Owned By: cohere
+cohere.command-r-plus-v1:0                         Owned By: cohere
+cohere.command-r-v1:0                              Owned By: cohere
+cohere.command-text-v14                            Owned By: cohere
+cohere.embed-english-v3                            Owned By: cohere
+cohere.embed-multilingual-v3                       Owned By: cohere
+dall-e-3                                           Owned By: 31mopenai
+davinci-002                                        Owned By: 31mopenai
+deepseek-chat                                      Owned By: deepseek
+deepseek-coder                                     Owned By: deepseek
+deepseek-reasoner                                  Owned By: deepseek
+gemini-1.5-flash                                   Owned By: google
+gemini-1.5-flash-001                               Owned By: google
+gemini-1.5-flash-002                               Owned By: google
+gemini-1.5-flash-8b                                Owned By: google
+gemini-1.5-flash-8b-exp-0827                       Owned By: google
+gemini-1.5-flash-8b-exp-0924                       Owned By: google
+gemini-1.5-flash-exp-0827                          Owned By: google
+gemini-1.5-flash-latest                            Owned By: google
+gemini-1.5-pro                                     Owned By: google
+gemini-1.5-pro-001                                 Owned By: google
+gemini-1.5-pro-002                                 Owned By: google
+gemini-1.5-pro-exp-0801                            Owned By: google
+gemini-1.5-pro-exp-0827                            Owned By: google
+gemini-1.5-pro-latest                              Owned By: google
+gemini-2.0-flash                                   Owned By: google
+gemini-2.0-flash-exp                               Owned By: google
+gemini-2.0-flash-lite                              Owned By: google
+gemini-2.0-flash-thinking-exp                      Owned By: google
+gemini-2.0-flash-thinking-exp-01-21                Owned By: google
+gemini-2.0-pro-exp-02-05                           Owned By: google
+gemini-2.5-pro-exp-03-25                           Owned By: google
+gemini-2.5-pro-preview-03-25                       Owned By: google
+gemini-exp-1114                                    Owned By: google
+gemini-exp-1206                                    Owned By: google
+gemini-pro                                         Owned By: google
+gpt-3.5-turbo                                      Owned By: 31mopenai
+gpt-3.5-turbo-0125                                 Owned By: 31mopenai
+gpt-3.5-turbo-0301                                 Owned By: 31mopenai
+gpt-3.5-turbo-0613                                 Owned By: 31mopenai
+gpt-3.5-turbo-1106                                 Owned By: 31mopenai
+gpt-3.5-turbo-16k                                  Owned By: 31mopenai
+gpt-3.5-turbo-16k-0613                             Owned By: 31mopenai
+gpt-3.5-turbo-instruct                             Owned By: 31mopenai
+gpt-4                                              Owned By: 31mopenai
+gpt-4-0125-preview                                 Owned By: 31mopenai
+gpt-4-0613                                         Owned By: 31mopenai
+gpt-4-1106-preview                                 Owned By: 31mopenai
+gpt-4-turbo                                        Owned By: 31mopenai
+gpt-4-turbo-2024-04-09                             Owned By: 31mopenai
+gpt-4.1                                            Owned By: 31mopenai
+gpt-4.1-2025-04-14                                 Owned By: 31mopenai
+gpt-4.1-mini                                       Owned By: 31mopenai
+gpt-4.1-mini-2025-04-14                            Owned By: 31mopenai
+gpt-4.1-nano                                       Owned By: 31mopenai
+gpt-4.1-nano-2025-04-14                            Owned By: 31mopenai
+gpt-4.5-preview                                    Owned By: 31mopenai
+gpt-4.5-preview-2025-02-27                         Owned By: 31mopenai
+gpt-4o                                             Owned By: 31mopenai
+gpt-4o-2024-05-13                                  Owned By: 31mopenai
+gpt-4o-2024-08-06                                  Owned By: 31mopenai
+gpt-4o-2024-11-20                                  Owned By: 31mopenai
+gpt-4o-audio-preview                               Owned By: 31mopenai
+gpt-4o-audio-preview-2024-10-01                    Owned By: 31mopenai
+gpt-4o-audio-preview-2024-12-17                    Owned By: 31mopenai
+gpt-4o-mini                                        Owned By: 31mopenai
+gpt-4o-mini-2024-07-18                             Owned By: 31mopenai
+gpt-4o-mini-audio-preview                          Owned By: 31mopenai
+gpt-4o-mini-audio-preview-2024-12-17               Owned By: 31mopenai
+gpt-4o-mini-search-preview                         Owned By: 31mopenai
+gpt-4o-mini-search-preview-2025-03-11              Owned By: 31mopenai
+gpt-4o-mini-transcribe                             Owned By: 31mopenai
+gpt-4o-search-preview                              Owned By: 31mopenai
+gpt-4o-search-preview-2025-03-11                   Owned By: 31mopenai
+gpt-4o-transcribe                                  Owned By: 31mopenai
+grok-3-beta                                        Owned By: xai
+grok-3-fast-beta                                   Owned By: xai
+grok-3-mini-beta                                   Owned By: xai
+grok-3-mini-fast-beta                              Owned By: xai
+llama-4-scout-17b-128e-instruct-fp8                Owned By: meta
+llama-4-scout-17b-16e-instruct                     Owned By: meta
+meta.llama3-1-405b-instruct-v1:0                   Owned By: meta
+meta.llama3-1-70b-instruct-v1:0                    Owned By: meta
+meta.llama3-1-8b-instruct-v1:0                     Owned By: meta
+meta.llama3-3-70b-instruct-v1:0                    Owned By: meta
+mistral.mistral-large-2407-v1:0                    Owned By: mistral ai
+o1                                                 Owned By: 31mopenai
+o1-2024-12-17                                      Owned By: 31mopenai
+o1-mini                                            Owned By: 31mopenai
+o1-mini-2024-09-12                                 Owned By: 31mopenai
+o1-preview                                         Owned By: 31mopenai
+o1-preview-2024-09-12                              Owned By: 31mopenai
+o3-mini                                            Owned By: 31mopenai
+o3-mini-2025-01-31                                 Owned By: 31mopenai
+omni-moderation-2024-09-26                         Owned By: 31mopenai
+omni-moderation-latest                             Owned By: 31mopenai
+qwen2.5-vl-72b-instruct                            Owned By: alibaba
+qwq-32b                                            Owned By: alibaba
+text-embedding-3-large                             Owned By: 31mopenai
+text-embedding-3-small                             Owned By: 31mopenai
+text-embedding-ada-002                             Owned By: 31mopenai
+text-moderation-latest                             Owned By: 31mopenai
+text-moderation-stable                             Owned By: 31mopenai
+tts-1                                              Owned By: 31mopenai
+tts-1-hd                                           Owned By: 31mopenai
+whisper-1                                          Owned By: 31mopenai
 

@@ -1,19 +1,12 @@
+"""
+Speech to Text Application Functions.
+"""
+
 import os
-import time
 import torch
 import whisper
 import speech_recognition as sr
-
-STT_TEMPRETURE: float = 0.0
-STT_LANGUAGE: str = "fa".lower()
-STT_MODEL: str = "turbo".lower()
-
-MICROPHONE_DURATION: int = 1
-MICROPHONE_DEVICE_INDEX: int = 1
-MICROPHONE_CHUNK_SIZE: int = 1024
-MICROPHONE_FRAME_RATE: int = 48_000
-
-TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
+import app_constants as constants
 
 
 def listen(audio_file_path: str) -> None:
@@ -24,15 +17,15 @@ def listen(audio_file_path: str) -> None:
     print("Listening...")
 
     with sr.Microphone(
-        chunk_size=MICROPHONE_CHUNK_SIZE,
-        sample_rate=MICROPHONE_FRAME_RATE,
-        device_index=MICROPHONE_DEVICE_INDEX,
+        chunk_size=constants.MICROPHONE_CHUNK_SIZE,
+        sample_rate=constants.MICROPHONE_FRAME_RATE,
+        device_index=constants.MICROPHONE_DEVICE_INDEX,
     ) as microphone:
         recognizer = sr.Recognizer()
 
         recognizer.adjust_for_ambient_noise(
             source=microphone,
-            duration=MICROPHONE_DURATION,
+            duration=constants.MICROPHONE_DURATION,
         )
 
         audio = recognizer.listen(source=microphone)
@@ -57,38 +50,19 @@ def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
 
     model = whisper.load_model(
         device=device,
-        name=STT_MODEL,
+        name=constants.STT_MODEL,
     )
 
     result = model.transcribe(
-        language=STT_LANGUAGE,
         audio=audio_file_path,
-        temperature=STT_TEMPRETURE,
+        language=constants.STT_LANGUAGE,
+        temperature=constants.STT_TEMPRETURE,
     )
 
     return result["text"]
 
 
-def main() -> None:
-    """
-    Main Function.
-    """
-
-    os.system(command="cls")
-
-    listen(audio_file_path=TEMP_AUDIO_FILE_PATH)
-
-    start_time: float = time.time()
-    text: str = transcribe_speech_to_text_offline(audio_file_path=TEMP_AUDIO_FILE_PATH)
-    response_time: float = time.time() - start_time
-
-    print("=" * 50)
-    print(text)
-    print("-" * 50)
-    print(f"Full response received {response_time:.2f} seconds after request.")
-    print("=" * 50)
-    print()
-
-
 if __name__ == "__main__":
-    main()
+    print(
+        "[-] This module is not meant to be run directly. Please use the 'app.py' script instead."
+    )
