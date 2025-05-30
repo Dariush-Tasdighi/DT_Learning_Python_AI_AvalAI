@@ -1,5 +1,5 @@
 """
-Speech to Text Application Functions.
+Speech to text application functions module.
 """
 
 import os
@@ -11,7 +11,7 @@ import app_constants as constants
 
 def listen(audio_file_path: str) -> None:
     """
-    Listen to Microphone and Save Audio to File.
+    Listen to microphone and save audio to file function.
     """
 
     print("Listening...")
@@ -37,16 +37,16 @@ def listen(audio_file_path: str) -> None:
 
 def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
     """
-    Trasncribe Speech to Text using Local / Offline LLM Model.
+    Trasncribe speech to text using local / offline LLM model.
     """
 
-    print("Trasncribing Speech to Text using Local / Offline LLM Model...")
+    print("Trasncribing speech to text using local / offline LLM model...")
 
     if not os.path.exists(path=audio_file_path):
         print(f"[-] Audio file not found: {audio_file_path}")
         exit()
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
     model = whisper.load_model(
         device=device,
@@ -59,10 +59,8 @@ def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
         temperature=constants.STT_TEMPRETURE,
     )
 
-    return result["text"]
+    return str(result["text"])
 
 
 if __name__ == "__main__":
-    print(
-        "[-] This module is not meant to be run directly. Please use the 'app.py' script instead."
-    )
+    print("[-] This module is not meant to be run directly.")

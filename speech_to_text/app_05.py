@@ -4,8 +4,8 @@ import whisper
 import speech_recognition as sr
 
 STT_TEMPRETURE: float = 0.0
-STT_LANGUAGE: str = "fa".lower()
-STT_MODEL: str = "turbo".lower()
+STT_LANGUAGE: str = "fa".strip().lower()
+STT_MODEL: str = "turbo".strip().lower()
 
 MICROPHONE_DURATION: int = 1
 MICROPHONE_DEVICE_INDEX: int = 1
@@ -17,7 +17,7 @@ TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
 
 def listen(audio_file_path: str) -> None:
     """
-    Listen to Microphone and Save Audio to File.
+    Listen to microphone and save audio to file function.
     """
 
     print("Listening...")
@@ -43,16 +43,16 @@ def listen(audio_file_path: str) -> None:
 
 def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
     """
-    Trasncribe Speech to Text using Local / Offline LLM Model.
+    Trasncribe speech to text using local / offline LLM model.
     """
 
-    print("Trasncribing Speech to Text using Local / Offline LLM Model...")
+    print("Trasncribing speech to text using local / offline LLM model...")
 
     if not os.path.exists(path=audio_file_path):
         print(f"[-] Audio file not found: {audio_file_path}")
         exit()
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
     model = whisper.load_model(
         device=device,
@@ -65,12 +65,12 @@ def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
         temperature=STT_TEMPRETURE,
     )
 
-    return result["text"]
+    return str(result["text"])
 
 
 def main() -> None:
     """
-    Main Function.
+    Main function.
     """
 
     os.system(command="cls")
@@ -82,7 +82,7 @@ def main() -> None:
                 audio_file_path=TEMP_AUDIO_FILE_PATH
             )
 
-            if text.strip().lower() in ["خدا نگهدار"]:
+            if text.strip().lower() in ["خدا نگهدار", "خداحافظ"]:
                 break
 
             print("=" * 50)

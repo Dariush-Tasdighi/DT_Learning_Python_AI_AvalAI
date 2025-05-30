@@ -5,12 +5,12 @@
 
 
 # **************************************************
-# import os
-# import speech_recognition
+import os
+import speech_recognition
 
-# os.system(command="cls")
+os.system(command="cls")
 
-# print("Version of 'speech_recognition' package:", speech_recognition.__version__)
+print("Version of 'speech_recognition' package:", speech_recognition.__version__)
 # **************************************************
 
 
@@ -65,7 +65,8 @@
 #         data = audio.get_wav_data()
 #         file.write(data)
 
-#     print("Finished")
+#     print("Finished.")
+#     print()
 # **************************************************
 
 
@@ -81,7 +82,7 @@
 
 # def main() -> None:
 #     """
-#     Main Function.
+#     Main function.
 #     """
 
 #     os.system(command="cls")
@@ -108,7 +109,8 @@
 #             data = audio.get_wav_data()
 #             file.write(data)
 
-#         print("Finished")
+#         print("Finished.")
+#         print()
 
 
 # if __name__ == "__main__":
@@ -117,55 +119,56 @@
 
 
 # **************************************************
-import os
-import speech_recognition as sr
+# import os
+# import speech_recognition as sr
 
-MICROPHONE_DURATION: int = 1
-MICROPHONE_DEVICE_INDEX: int = 1
-MICROPHONE_CHUNK_SIZE: int = 1024
-MICROPHONE_FRAME_RATE: int = 48_000
+# MICROPHONE_DURATION: int = 1
+# MICROPHONE_DEVICE_INDEX: int = 1
+# MICROPHONE_CHUNK_SIZE: int = 1024
+# MICROPHONE_FRAME_RATE: int = 48_000
 
-TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
-
-
-def listen(audio_file_path: str) -> None:
-    """
-    Listen to Microphone and Save Audio to File.
-    """
-
-    print("Listening...")
-
-    with sr.Microphone(
-        chunk_size=MICROPHONE_CHUNK_SIZE,
-        sample_rate=MICROPHONE_FRAME_RATE,
-        device_index=MICROPHONE_DEVICE_INDEX,
-    ) as microphone:
-        recognizer = sr.Recognizer()
-
-        recognizer.adjust_for_ambient_noise(
-            source=microphone,
-            duration=MICROPHONE_DURATION,
-        )
-
-        audio = recognizer.listen(source=microphone)
-
-        with open(file=audio_file_path, mode="wb") as file:
-            data = audio.get_wav_data()
-            file.write(data)
+# TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
 
 
-def main() -> None:
-    """
-    Main Function
-    """
+# def listen(audio_file_path: str) -> None:
+#     """
+#     Listen to microphone and save audio to file function.
+#     """
 
-    os.system(command="cls")
+#     print("Listening...")
 
-    listen(audio_file_path=TEMP_AUDIO_FILE_PATH)
+#     with sr.Microphone(
+#         chunk_size=MICROPHONE_CHUNK_SIZE,
+#         sample_rate=MICROPHONE_FRAME_RATE,
+#         device_index=MICROPHONE_DEVICE_INDEX,
+#     ) as microphone:
+#         recognizer = sr.Recognizer()
 
-    print("Finished")
+#         recognizer.adjust_for_ambient_noise(
+#             source=microphone,
+#             duration=MICROPHONE_DURATION,
+#         )
+
+#         audio = recognizer.listen(source=microphone)
+
+#         with open(file=audio_file_path, mode="wb") as file:
+#             data = audio.get_wav_data()
+#             file.write(data)
 
 
-if __name__ == "__main__":
-    main()
+# def main() -> None:
+#     """
+#     Main function.
+#     """
+
+#     os.system(command="cls")
+
+#     listen(audio_file_path=TEMP_AUDIO_FILE_PATH)
+
+#     print("Finished.")
+#     print()
+
+
+# if __name__ == "__main__":
+#     main()
 # **************************************************
