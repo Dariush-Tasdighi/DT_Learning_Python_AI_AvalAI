@@ -7,7 +7,8 @@ BASE_URL: str = "https://api.avalai.ir/v1"
 # **************************************************
 # MODEL_NAME: str = "gpt-4o"
 # MODEL_NAME: str = "gpt-4o-mini"
-MODEL_NAME: str = "gpt-3.5-turbo"
+# MODEL_NAME: str = "gpt-3.5-turbo"
+MODEL_NAME: str = "openai.gpt-oss-20b-1:0"
 # **************************************************
 
 
@@ -136,49 +137,45 @@ MODEL_NAME: str = "gpt-3.5-turbo"
 # **************************************************
 # Sample 2 - Streaming
 # **************************************************
-# import os
-# from openai import OpenAI
-# from dotenv import load_dotenv
+import os
+from openai import OpenAI
+from dotenv import load_dotenv
 
-# os.system(command="cls")
+os.system(command="cls")
 
-# load_dotenv()
+load_dotenv()
 
-# api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
-# if not api_key:
-#     print("API Key not found!")
-#     exit()
+api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
+if not api_key:
+    print("API Key not found!")
+    exit()
 
-# client = OpenAI(
-#     api_key=api_key,
-#     base_url=BASE_URL,
-# )
+client = OpenAI(
+    api_key=api_key,
+    base_url=BASE_URL,
+)
 
-# response = client.chat.completions.create(
-#     stream=True,
-#     temperature=0.7,
-#     model=MODEL_NAME,
-#     messages=[
-#         {"role": "user", "content": "Tell me a short story about science fiction."}
-#     ],
-# )
+response = client.chat.completions.create(
+    stream=True,
+    temperature=0.7,
+    model=MODEL_NAME,
+    messages=[
+        {"role": "user", "content": "Tell me a short story about science fiction."}
+    ],
+)
 
-# print("-" * 50)
+print("=" * 50)
 
-# # for chunk in response:
-# #     content = chunk.choices[0].delta.content
-# #     print(content, end="")
+for chunk in response:
+    if chunk.choices[0].finish_reason == "stop":
+        break
 
-# for chunk in response:
-#     if chunk.choices[0].finish_reason == "stop":
-#         break
+    content = chunk.choices[0].delta.content
+    if content:
+        print(content, end="", flush=True)
 
-#     content = chunk.choices[0].delta.content
-#     if content:
-#         print(content, end="")
-
-# print()
-# print("-" * 50)
+print("=" * 50)
+print()
 # **************************************************
 
 
@@ -646,179 +643,179 @@ MODEL_NAME: str = "gpt-3.5-turbo"
 # Sample 8 - Simple AI Agent - Without History
 # It is a Perfect Dictionary
 # **************************************************
-import os
-import time
-from openai import OpenAI
-from dotenv import load_dotenv
+# import os
+# import time
+# from openai import OpenAI
+# from dotenv import load_dotenv
 
 
-def get_api_key() -> str:
-    """
-    Get API Key Function
-    """
+# def get_api_key() -> str:
+#     """
+#     Get API Key Function
+#     """
 
-    load_dotenv()
+#     load_dotenv()
 
-    api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
-    if not api_key:
-        print("API Key not found!")
-        exit()
+#     api_key: str | None = os.getenv(key=KEY_NAME_API_KEY)
+#     if not api_key:
+#         print("API Key not found!")
+#         exit()
 
-    return api_key
-
-
-def chat_completions(
-    messages: list[dict],
-    temperature: float = 0.7,
-    model_name: str = "gpt-3.5-turbo",
-) -> str:
-    """
-    Chat Completions Function
-    """
-
-    api_key: str = get_api_key()
-
-    client = OpenAI(api_key=api_key, base_url=BASE_URL,)
-
-    response = client.chat.completions.create(
-        stream=False,
-        model=model_name,
-        messages=messages,
-        temperature=temperature,
-    )
-
-    content: str | None = response.choices[0].message.content
-
-    if not content:
-        content = "No content received!"
-
-    return content
+#     return api_key
 
 
-def main() -> None:
-    """
-    Main Function
-    """
+# def chat_completions(
+#     messages: list[dict],
+#     temperature: float = 0.7,
+#     model_name: str = "gpt-3.5-turbo",
+# ) -> str:
+#     """
+#     Chat Completions Function
+#     """
 
-    os.system(command="cls")
+#     api_key: str = get_api_key()
 
-    # SYSTEM_PROMPT: str = "You are a helpful AI assistant."
+#     client = OpenAI(api_key=api_key, base_url=BASE_URL,)
 
-    # SYSTEM_PROMPT: str = """
-    # You are a professional translator assistant from English language to Farsi language.
+#     response = client.chat.completions.create(
+#         stream=False,
+#         model=model_name,
+#         messages=messages,
+#         temperature=temperature,
+#     )
 
-    # User must write just one word in English language.
+#     content: str | None = response.choices[0].message.content
 
-    # If user wrote more than one word, or one word but \
-    # not in English language, answer 'Error! Try Again...'.
+#     if not content:
+#         content = "No content received!"
 
-    # Just translate English word, based on the below instructions.
-
-    # Write the translated to Farsi language of user word in ## part.
-    # Write the English Pronounce of user word in ### part.
-    # Write the 5 English Synonyms in #### parts.
-    # Write the 2 English Antonyms in ##### parts.
-    # Write the 2 sample and simple English sentences in ###### parts.
-
-    # Just write the below text, based on above instructions.
-
-    # Translated to Farsi Language: ##
-    # English Pronounce: ###
-
-    # Synonyms:
-
-    # 1) ####
-    # 2) ####
-    # 3) ####
-    # 4) ####
-    # 5) ####
-
-    # Antonyms:
-
-    # 1) #####
-    # 2) #####
-
-    # Two Sample Sentences:
-
-    # 1) ######
-    # 2) ######
-    # """
-
-    SYSTEM_PROMPT: str = """
-    You are a professional translator assistant from English language to Farsi language.
-
-    User must write just one word in English language.
-
-    If user wrote more than one word, or one word but \
-    not in English language, answer 'Error! Try Again...'.
-
-    Just translate English word, based on the below instructions.
-
-    Write the translated to Farsi language of user word in ## part.
-    Write the English Pronounce of user word in ### part.
-    Write the 5 English Synonyms in #### parts.
-    Write the 2 English Antonyms in ##### parts.
-    Write the 2 sample and simple English sentences in ###### parts.
-
-    Just write the below text, based on above instructions and \
-    replace '#', ''##', ''###', '####', '#####', '######' \
-    with your answers and never write '#' in your result at all.
-
-    Translated to Farsi Language: ##
-    English Pronounce: ###
-
-    Synonyms:
-
-    1) ####
-    2) ####
-    3) ####
-    4) ####
-    5) ####
-
-    Antonyms:
-
-    1) #####
-    2) #####
-
-    Two Sample Sentences:
-
-    1) ######
-    2) ######
-    """
-
-    while True:
-        print("=" * 50)
-        user_prompt: str = input("User: ")
-
-        if user_prompt.lower() in ["exit", "quit", "bye"]:
-            break
-
-        messages: list[dict] = []
-
-        SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
-        messages.append(SYSTEM_MESSAGE)
-
-        user_message: dict = {"role": "user", "content": user_prompt}
-        messages.append(user_message)
-
-        start_time: float = time.time()
-
-        assistant_answer: str = chat_completions(
-            temperature=0.0,
-            messages=messages,
-            model_name=MODEL_NAME,
-        )
-
-        response_time: float = time.time() - start_time
-
-        print("-" * 50)
-        print(assistant_answer)
-        print("-" * 50)
-        print(f"Full response received {response_time:.2f} seconds after request.")
-        print("=" * 50)
-        print()
+#     return content
 
 
-if __name__ == "__main__":
-    main()
+# def main() -> None:
+#     """
+#     Main Function
+#     """
+
+#     os.system(command="cls")
+
+#     # SYSTEM_PROMPT: str = "You are a helpful AI assistant."
+
+#     # SYSTEM_PROMPT: str = """
+#     # You are a professional translator assistant from English language to Farsi language.
+
+#     # User must write just one word in English language.
+
+#     # If user wrote more than one word, or one word but \
+#     # not in English language, answer 'Error! Try Again...'.
+
+#     # Just translate English word, based on the below instructions.
+
+#     # Write the translated to Farsi language of user word in ## part.
+#     # Write the English Pronounce of user word in ### part.
+#     # Write the 5 English Synonyms in #### parts.
+#     # Write the 2 English Antonyms in ##### parts.
+#     # Write the 2 sample and simple English sentences in ###### parts.
+
+#     # Just write the below text, based on above instructions.
+
+#     # Translated to Farsi Language: ##
+#     # English Pronounce: ###
+
+#     # Synonyms:
+
+#     # 1) ####
+#     # 2) ####
+#     # 3) ####
+#     # 4) ####
+#     # 5) ####
+
+#     # Antonyms:
+
+#     # 1) #####
+#     # 2) #####
+
+#     # Two Sample Sentences:
+
+#     # 1) ######
+#     # 2) ######
+#     # """
+
+#     SYSTEM_PROMPT: str = """
+#     You are a professional translator assistant from English language to Farsi language.
+
+#     User must write just one word in English language.
+
+#     If user wrote more than one word, or one word but \
+#     not in English language, answer 'Error! Try Again...'.
+
+#     Just translate English word, based on the below instructions.
+
+#     Write the translated to Farsi language of user word in ## part.
+#     Write the English Pronounce of user word in ### part.
+#     Write the 5 English Synonyms in #### parts.
+#     Write the 2 English Antonyms in ##### parts.
+#     Write the 2 sample and simple English sentences in ###### parts.
+
+#     Just write the below text, based on above instructions and \
+#     replace '#', ''##', ''###', '####', '#####', '######' \
+#     with your answers and never write '#' in your result at all.
+
+#     Translated to Farsi Language: ##
+#     English Pronounce: ###
+
+#     Synonyms:
+
+#     1) ####
+#     2) ####
+#     3) ####
+#     4) ####
+#     5) ####
+
+#     Antonyms:
+
+#     1) #####
+#     2) #####
+
+#     Two Sample Sentences:
+
+#     1) ######
+#     2) ######
+#     """
+
+#     while True:
+#         print("=" * 50)
+#         user_prompt: str = input("User: ")
+
+#         if user_prompt.lower() in ["exit", "quit", "bye"]:
+#             break
+
+#         messages: list[dict] = []
+
+#         SYSTEM_MESSAGE: dict = {"role": "system", "content": SYSTEM_PROMPT}
+#         messages.append(SYSTEM_MESSAGE)
+
+#         user_message: dict = {"role": "user", "content": user_prompt}
+#         messages.append(user_message)
+
+#         start_time: float = time.time()
+
+#         assistant_answer: str = chat_completions(
+#             temperature=0.0,
+#             messages=messages,
+#             model_name=MODEL_NAME,
+#         )
+
+#         response_time: float = time.time() - start_time
+
+#         print("-" * 50)
+#         print(assistant_answer)
+#         print("-" * 50)
+#         print(f"Full response received {response_time:.2f} seconds after request.")
+#         print("=" * 50)
+#         print()
+
+
+# if __name__ == "__main__":
+#     main()
 # **************************************************

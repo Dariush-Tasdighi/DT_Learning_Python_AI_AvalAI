@@ -23,8 +23,8 @@
 # https://ffmpeg.org/download.html
 #
 # 3. Install Local Whisper Model:
-# https://github.com/openai/whisper
 # https://pypi.org/project/whisper
+# https://github.com/openai/whisper
 # python -m pip install -U openai-whisper
 #
 # 4. For Activation GPU:
@@ -36,10 +36,14 @@
 # https://pytorch.org
 # pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 # **************************************************
+
+
+# **************************************************
 import os
 import time
 import torch
 import whisper
+from rich import print
 
 STT_TEMPRETURE: float = 0.0
 STT_LANGUAGE: str = "fa".strip().lower()
@@ -51,11 +55,11 @@ STT_LANGUAGE: str = "fa".strip().lower()
 # STT_MODEL: str = "large".strip().lower()
 STT_MODEL: str = "turbo".strip().lower()
 
-os.system(command="cls")
+os.system(command="cls" if os.name == "nt" else "clear")
 
 device: str = "cuda" if torch.cuda.is_available() else "cpu"
-print("Device:", device)
-# exit()
+print(f"Device: {device}")
+# exit()  # Test
 
 audio_file_path: str = "../speech_files/sample_01.mp3"
 # audio_file_path: str = "../speech_files/Ali-Akbar-Raefipour-03.mp3"
@@ -76,6 +80,10 @@ model = whisper.load_model(
 # model = whisper.load_model(name=STT_MODEL).to(device=device)
 
 if not os.path.exists(path=audio_file_path):
+    print(f"[-] Audio file not found: {audio_file_path}")
+    exit()
+
+if not os.path.isfile(path=audio_file_path):
     print(f"[-] Audio file not found: {audio_file_path}")
     exit()
 
@@ -105,6 +113,7 @@ print()
 # import time
 # import torch
 # import whisper
+# from rich import print
 
 # STT_TEMPRETURE: float = 0.0
 # STT_LANGUAGE: str = "fa".strip().lower()
@@ -113,18 +122,26 @@ print()
 # TEMP_AUDIO_FILE_PATH: str = "../speech_files/Recording.mp3"
 
 
-# def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
+# def transcribe_speech_to_text_offline(
+#     audio_file_path: str,
+#     notify: bool = False,
+# ) -> str:
 #     """
 #     Trasncribe speech to text using local / offline LLM model.
 #     """
-
-#     print("Trasncribing speech to text using local / offline LLM model...")
 
 #     if not os.path.exists(path=audio_file_path):
 #         print(f"[-] Audio file not found: {audio_file_path}")
 #         exit()
 
+#     if not os.path.isfile(path=audio_file_path):
+#         print(f"[-] Audio file not found: {audio_file_path}")
+#         exit()
+
 #     device: str = "cuda" if torch.cuda.is_available() else "cpu"
+
+#     if notify:
+#         print("Trasncribing speech to text Starting...")
 
 #     model = whisper.load_model(
 #         device=device,
@@ -137,6 +154,9 @@ print()
 #         temperature=STT_TEMPRETURE,
 #     )
 
+#     if notify:
+#         print("Trasncribing speech to text Finished.")
+
 #     return str(result["text"])
 
 
@@ -145,11 +165,12 @@ print()
 #     Main function.
 #     """
 
-#     os.system(command="cls")
+#     os.system(command="cls" if os.name == "nt" else "clear")
 
 #     start_time: float = time.time()
 
 #     text: str = transcribe_speech_to_text_offline(
+#         notify=True,
 #         audio_file_path=TEMP_AUDIO_FILE_PATH,
 #     )
 

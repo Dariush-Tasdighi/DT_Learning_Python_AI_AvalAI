@@ -1,11 +1,12 @@
 import os
 import torch
 import whisper
+from rich import print
 import speech_recognition as sr
 
-STT_TEMPRETURE: float = 0.0
-STT_LANGUAGE: str = "fa".strip().lower()
-STT_MODEL: str = "turbo".strip().lower()
+TEMPRETURE: float = 0.0
+LANGUAGE: str = "fa".strip().lower()
+MODEL: str = "turbo".strip().lower()
 
 MICROPHONE_DURATION: int = 1
 MICROPHONE_DEVICE_INDEX: int = 1
@@ -15,12 +16,16 @@ MICROPHONE_FRAME_RATE: int = 48_000
 TEMP_AUDIO_FILE_PATH: str = "../speech_files/LiveRecording.mp3"
 
 
-def listen(audio_file_path: str) -> None:
+def listen(
+    audio_file_path: str,
+    notify: bool = False,
+) -> None:
     """
     Listen to microphone and save audio to file function.
     """
 
-    print("Listening...")
+    if notify:
+        print("Start Listening...")
 
     with sr.Microphone(
         chunk_size=MICROPHONE_CHUNK_SIZE,
@@ -36,34 +41,49 @@ def listen(audio_file_path: str) -> None:
 
         audio = recognizer.listen(source=microphone)
 
+        if notify:
+            print("Finished Listening.")
+
+        data = audio.get_wav_data()  # type: ignore
+
         with open(file=audio_file_path, mode="wb") as file:
-            data = audio.get_wav_data()
             file.write(data)
 
 
-def transcribe_speech_to_text_offline(audio_file_path: str) -> str:
+def transcribe_speech_to_text_offline(
+    audio_file_path: str,
+    notify: bool = False,
+) -> str:
     """
     Trasncribe speech to text using local / offline LLM model.
     """
-
-    print("Trasncribing speech to text using local / offline LLM model...")
 
     if not os.path.exists(path=audio_file_path):
         print(f"[-] Audio file not found: {audio_file_path}")
         exit()
 
+    if not os.path.isfile(path=audio_file_path):
+        print(f"[-] Audio file not found: {audio_file_path}")
+        exit()
+
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
+    if notify:
+        print("Trasncribing speech to text Starting...")
+
     model = whisper.load_model(
+        name=MODEL,
         device=device,
-        name=STT_MODEL,
     )
 
     result = model.transcribe(
-        language=STT_LANGUAGE,
+        language=LANGUAGE,
         audio=audio_file_path,
-        temperature=STT_TEMPRETURE,
+        temperature=TEMPRETURE,
     )
+
+    if notify:
+        print("Trasncribing speech to text Finished.")
 
     return str(result["text"])
 
@@ -73,13 +93,18 @@ def main() -> None:
     Main function.
     """
 
-    os.system(command="cls")
+    os.system(command="cls" if os.name == "nt" else "clear")
 
     while True:
         try:
-            listen(audio_file_path=TEMP_AUDIO_FILE_PATH)
+            listen(
+                notify=True,
+                audio_file_path=TEMP_AUDIO_FILE_PATH,
+            )
+
             text: str = transcribe_speech_to_text_offline(
-                audio_file_path=TEMP_AUDIO_FILE_PATH
+                notify=True,
+                audio_file_path=TEMP_AUDIO_FILE_PATH,
             )
 
             if text.strip().lower() in ["خدا نگهدار", "خداحافظ"]:
