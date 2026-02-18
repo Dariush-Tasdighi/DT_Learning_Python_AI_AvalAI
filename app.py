@@ -5,10 +5,11 @@ BASE_URL: str = "https://api.avalai.ir/v1"
 
 
 # **************************************************
-# MODEL_NAME: str = "gpt-4o"
-# MODEL_NAME: str = "gpt-4o-mini"
-# MODEL_NAME: str = "gpt-3.5-turbo"
-MODEL_NAME: str = "openai.gpt-oss-20b-1:0"
+# MODEL_NAME: str = "gpt-4o".strip().lower()
+# MODEL_NAME: str = "gpt-4o-mini".strip().lower()
+# MODEL_NAME: str = "gpt-3.5-turbo".strip().lower()
+# MODEL_NAME: str = "gemini-2.5-flash-lite".strip().lower()
+MODEL_NAME: str = "openai.gpt-oss-20b-1:0".strip().lower()
 # **************************************************
 
 

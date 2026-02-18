@@ -1,0 +1,8 @@
+pip
+rich
+openai
+tiktoken
+pygame-ce
+python-dotenv
+openai-whisper
+SpeechRecognition

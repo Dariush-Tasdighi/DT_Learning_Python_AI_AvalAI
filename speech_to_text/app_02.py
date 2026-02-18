@@ -1,10 +1,10 @@
 # **************************************************
 # نکته بسیار مهم:
-# برای استفاده از کتابخانه
+# در زمان نصب کتابخانه
 # whisper
-# باید کتابخانه
+# کتابخانه
 # torch
-# را نصب کنید:
+# نیز نصب می‌شود:
 #
 # علاوه بر این، و در عین ناباوری، باید حتما برنامه
 # ffmpeg
@@ -17,14 +17,30 @@
 
 
 # **************************************************
+# 1. Check your GPU
+# 	- NVIDIA
+# 2. Is your NVIDIA compatible with AI
+# 	- 10x
+# 	- 20x
+# 	- ...
+# 	- 50x
+# 3. Update NVIDIA Driver
+# 4. Download / Update CUDA Driver (2.5GB)
+# 	- Check Your NVIDIA GPU with CUDA Version
+# 5. Download PyTorch for GPU (3GB)
+# 6. Check GPU (CUDA) with Python
+# **************************************************
+
+
+# **************************************************
 # 1. https://vrgl.ir/T3JLR
 #
 # 2. FFmpeg:
 # https://ffmpeg.org/download.html
 #
 # 3. Install Local Whisper Model:
-# https://pypi.org/project/whisper
 # https://github.com/openai/whisper
+# https://pypi.org/project/openai-whisper
 # python -m pip install -U openai-whisper
 #
 # 4. For Activation GPU:
@@ -34,77 +50,121 @@
 #
 # 5.2. Download and Install PyTorch:
 # https://pytorch.org
-# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 -U
+# python -m pip install --trusted-host mirror-pypi.runflare.com -i https://mirror-pypi.runflare.com/simple -U
 # **************************************************
 
 
 # **************************************************
 import os
 import time
+from rich import print
+from typing import Final
+
+# NEW
 import torch
 import whisper
-from rich import print
 
-STT_TEMPRETURE: float = 0.0
-STT_LANGUAGE: str = "fa".strip().lower()
+# STT_MODEL_NAME: Final[str] = "tiny".replace(" ", "").lower()
+# STT_MODEL_NAME: Final[str] = "base".replace(" ", "").lower()
+# STT_MODEL_NAME: Final[str] = "small".replace(" ", "").lower()
+# STT_MODEL_NAME: Final[str] = "medium".replace(" ", "").lower()
+# STT_MODEL_NAME: Final[str] = "large".replace(" ", "").lower()
+STT_MODEL_NAME: Final[str] = "turbo".replace(" ", "").lower()
 
-# STT_MODEL: str = "tiny".strip().lower()
-# STT_MODEL: str = "base".strip().lower()
-# STT_MODEL: str = "small".strip().lower()
-# STT_MODEL: str = "medium".strip().lower()
-# STT_MODEL: str = "large".strip().lower()
-STT_MODEL: str = "turbo".strip().lower()
+STT_TEMPRETURE: Final[float] = 0.0
+STT_LANGUAGE: Final[str] = "fa".replace(" ", "").lower()
+STT_AUDIO_FILE_EXTENSION: Final[str] = "mp3".replace(" ", "").lower()
 
-os.system(command="cls" if os.name == "nt" else "clear")
 
-device: str = "cuda" if torch.cuda.is_available() else "cpu"
-print(f"Device: {device}")
-# exit()  # Test
+def main() -> None:
+    """
+    The main of program
+    """
 
-audio_file_path: str = "../speech_files/sample_01.mp3"
-# audio_file_path: str = "../speech_files/Ali-Akbar-Raefipour-03.mp3"
+    os.system(command="cls" if os.name == "nt" else "clear")
 
-# Solution (1) - with 'turbo' model - mp3 is 51 seconds: 31.72 seconds
-model = whisper.load_model(
-    device="cpu",
-    name=STT_MODEL,
-)
+    audio_file_path: str = "../speech_files/Recording.mp3"
+    # audio_file_path: str = "../speech_files/Ali-Akbar-Raefipour-03.mp3"
 
-# Solution (2) - with 'turbo' model - mp3 is 51 seconds: 47.70 seconds
-# model = whisper.load_model(
-#     device=device,
-#     name=STT_MODEL,
-# )
+    if not os.path.exists(path=audio_file_path):
+        error_message: str = f"File not found: '{audio_file_path}'"
+        raise Exception(error_message)
 
-# Solution (3) - with 'turbo' model - mp3 is 51 seconds: 40.23 seconds
-# model = whisper.load_model(name=STT_MODEL).to(device=device)
+    if not os.path.isfile(path=audio_file_path):
+        error_message: str = f"File not found: '{audio_file_path}'"
+        raise Exception(error_message)
 
-if not os.path.exists(path=audio_file_path):
-    print(f"[-] Audio file not found: {audio_file_path}")
-    exit()
+    file_extension: str = audio_file_path.split(sep=".")[-1].lower()
+    if file_extension != STT_AUDIO_FILE_EXTENSION:
+        error_message: str = (
+            f"The '{audio_file_path}' file must have '{STT_AUDIO_FILE_EXTENSION}' extension"
+        )
+        raise Exception(error_message)
 
-if not os.path.isfile(path=audio_file_path):
-    print(f"[-] Audio file not found: {audio_file_path}")
-    exit()
+    # NEW
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    # print(f"Device: {device}")
+    # exit()  # Test
 
-start_time: float = time.time()
+    # **********
+    # NEW
+    # Warning: FP16 is not supported on CPU; using FP32 instead
+    # **********
+    # fp16: bool = False
+    # if device == "cuda":
+    #     fp16 = True
+    # **********
+    fp16: bool = False if device == "cuda" else True
 
-result = model.transcribe(
-    language=STT_LANGUAGE,
-    audio=audio_file_path,
-    temperature=STT_TEMPRETURE,
-)
+    # NEW
+    # model = whisper.load_model(
+    #     device="cpu",
+    #     name=STT_MODEL_NAME,
+    # )
 
-response_time: float = time.time() - start_time
+    # NEW
+    # model = whisper.load_model(name=STT_MODEL_NAME).to(device="cpu")
 
-print("=" * 50)
-print(result)
-print("-" * 50)
-print(result["text"])
-print("-" * 50)
-print(f"Full response received {response_time:.2f} seconds after request.")
-print("=" * 50)
-print()
+    # NEW
+    model = whisper.load_model(
+        device=device,
+        name=STT_MODEL_NAME,
+    )
+
+    # NEW
+    # model = whisper.load_model(name=STT_MODEL_NAME).to(device=device)
+
+    start_time: float = time.perf_counter()
+
+    response = model.transcribe(
+        fp16=fp16,
+        language=STT_LANGUAGE,
+        audio=audio_file_path,
+        temperature=STT_TEMPRETURE,
+    )
+
+    end_time: float = time.perf_counter()
+    elapsed_time: float = end_time - start_time
+
+    print("=" * 50)
+    print(response)
+    print("-" * 50)
+    print(response["text"])
+    print("-" * 50)
+    print(f"Elapsed time: {elapsed_time:.2f} seconds")
+    print("=" * 50)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+
+    except Exception as exception:
+        print(f"[red][-] {exception}!")
+
+    finally:
+        print()
 # **************************************************
 
 
@@ -114,76 +174,91 @@ print()
 # import torch
 # import whisper
 # from rich import print
+# from typing import Final
 
-# STT_TEMPRETURE: float = 0.0
-# STT_LANGUAGE: str = "fa".strip().lower()
-# STT_MODEL: str = "turbo".strip().lower()
-
-# TEMP_AUDIO_FILE_PATH: str = "../speech_files/Recording.mp3"
+# STT_TEMPRETURE: Final[float] = 0.0
+# STT_LANGUAGE: Final[str] = "fa".replace(" ", "").lower()
+# STT_MODEL_NAME: Final[str] = "turbo".replace(" ", "").lower()
+# STT_AUDIO_FILE_EXTENSION: Final[str] = "mp3".replace(" ", "").lower()
 
 
 # def transcribe_speech_to_text_offline(
 #     audio_file_path: str,
-#     notify: bool = False,
+#     language: str = STT_LANGUAGE,
+#     model_name: str = STT_MODEL_NAME,
+#     tempreture: float = STT_TEMPRETURE,
 # ) -> str:
 #     """
-#     Trasncribe speech to text using local / offline LLM model.
+#     Transcribe speech to text offline
 #     """
 
 #     if not os.path.exists(path=audio_file_path):
-#         print(f"[-] Audio file not found: {audio_file_path}")
-#         exit()
+#         error_message: str = f"File not found: '{audio_file_path}'"
+#         raise Exception(error_message)
 
 #     if not os.path.isfile(path=audio_file_path):
-#         print(f"[-] Audio file not found: {audio_file_path}")
-#         exit()
+#         error_message: str = f"File not found: '{audio_file_path}'"
+#         raise Exception(error_message)
+
+#     file_extension: str = audio_file_path.split(sep=".")[-1].lower()
+#     if file_extension != STT_AUDIO_FILE_EXTENSION:
+#         error_message: str = (
+#             f"The '{audio_file_path}' file must have '{STT_AUDIO_FILE_EXTENSION}' extension"
+#         )
+#         raise Exception(error_message)
 
 #     device: str = "cuda" if torch.cuda.is_available() else "cpu"
-
-#     if notify:
-#         print("Trasncribing speech to text Starting...")
+#     fp16: bool = False if device == "cuda" else True
 
 #     model = whisper.load_model(
 #         device=device,
-#         name=STT_MODEL,
+#         name=model_name,
 #     )
 
-#     result = model.transcribe(
-#         language=STT_LANGUAGE,
+#     response: dict = model.transcribe(
+#         fp16=fp16,
+#         language=language,
 #         audio=audio_file_path,
-#         temperature=STT_TEMPRETURE,
+#         temperature=tempreture,
 #     )
 
-#     if notify:
-#         print("Trasncribing speech to text Finished.")
-
-#     return str(result["text"])
+#     # text: str = str(response["text"])
+#     text: str = str(response.get("text", ""))
+#     return text
 
 
 # def main() -> None:
 #     """
-#     Main function.
+#     The main of program
 #     """
 
 #     os.system(command="cls" if os.name == "nt" else "clear")
 
-#     start_time: float = time.time()
+#     audio_file_path: str = "../speech_files/Recording.mp3"
+
+#     start_time: float = time.perf_counter()
 
 #     text: str = transcribe_speech_to_text_offline(
-#         notify=True,
-#         audio_file_path=TEMP_AUDIO_FILE_PATH,
+#         audio_file_path=audio_file_path,
 #     )
 
-#     response_time: float = time.time() - start_time
+#     end_time: float = time.perf_counter()
+#     elapsed_time: float = end_time - start_time
 
 #     print("=" * 50)
 #     print(text)
 #     print("-" * 50)
-#     print(f"Full response received {response_time:.2f} seconds after request.")
+#     print(f"Elapsed time: {elapsed_time:.2f} seconds")
 #     print("=" * 50)
-#     print()
 
 
 # if __name__ == "__main__":
-#     main()
+#     try:
+#         main()
+
+#     except Exception as exception:
+#         print(f"[red][-] {exception}!")
+
+#     finally:
+#         print()
 # **************************************************

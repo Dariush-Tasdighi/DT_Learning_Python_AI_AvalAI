@@ -20,9 +20,7 @@ def listen(
     audio_file_path: str,
     notify: bool = False,
 ) -> None:
-    """
-    Listen to microphone and save audio to file function.
-    """
+    """Listen to microphone and save audio to file function."""
 
     if notify:
         print("Start Listening...")
@@ -54,9 +52,7 @@ def transcribe_speech_to_text_offline(
     audio_file_path: str,
     notify: bool = False,
 ) -> str:
-    """
-    Trasncribe speech to text using local / offline LLM model.
-    """
+    """Trasncribe speech to text using local / offline LLM model."""
 
     if not os.path.exists(path=audio_file_path):
         print(f"[-] Audio file not found: {audio_file_path}")
@@ -89,9 +85,7 @@ def transcribe_speech_to_text_offline(
 
 
 def main() -> None:
-    """
-    Main function.
-    """
+    """Main function."""
 
     os.system(command="cls" if os.name == "nt" else "clear")
 
@@ -107,7 +101,7 @@ def main() -> None:
                 audio_file_path=TEMP_AUDIO_FILE_PATH,
             )
 
-            if text.strip().lower() in ["خدا نگهدار", "خداحافظ"]:
+            if text.strip().lower() in ["خدا نگهدار", "خداحافظ", "خدا حافظ"]:
                 break
 
             print("=" * 50)

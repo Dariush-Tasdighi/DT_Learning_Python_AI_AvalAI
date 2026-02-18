@@ -1,116 +1,426 @@
-anthropic.claude-3-5-haiku-20241022-v1:0           Owned By: anthropic
-anthropic.claude-3-5-sonnet-20240620-v1:0          Owned By: anthropic
-anthropic.claude-3-5-sonnet-20241022-v2:0          Owned By: anthropic
-anthropic.claude-3-7-sonnet-20250219-v1:0          Owned By: anthropic
-anthropic.claude-3-haiku-20240307-v1:0             Owned By: anthropic
-anthropic.claude-3-opus-20240229-v1:0              Owned By: anthropic
-anthropic.claude-3-sonnet-20240229-v1:0            Owned By: anthropic
-babbage-002                                        Owned By: 31mopenai
-chatgpt-4o-latest                                  Owned By: 31mopenai
-cohere.command-light-text-v14                      Owned By: cohere
-cohere.command-r-plus-v1:0                         Owned By: cohere
-cohere.command-r-v1:0                              Owned By: cohere
-cohere.command-text-v14                            Owned By: cohere
-cohere.embed-english-v3                            Owned By: cohere
-cohere.embed-multilingual-v3                       Owned By: cohere
-dall-e-3                                           Owned By: 31mopenai
-davinci-002                                        Owned By: 31mopenai
-deepseek-chat                                      Owned By: deepseek
-deepseek-coder                                     Owned By: deepseek
-deepseek-reasoner                                  Owned By: deepseek
-gemini-1.5-flash                                   Owned By: google
-gemini-1.5-flash-001                               Owned By: google
-gemini-1.5-flash-002                               Owned By: google
-gemini-1.5-flash-8b                                Owned By: google
-gemini-1.5-flash-8b-exp-0827                       Owned By: google
-gemini-1.5-flash-8b-exp-0924                       Owned By: google
-gemini-1.5-flash-exp-0827                          Owned By: google
-gemini-1.5-flash-latest                            Owned By: google
-gemini-1.5-pro                                     Owned By: google
-gemini-1.5-pro-001                                 Owned By: google
-gemini-1.5-pro-002                                 Owned By: google
-gemini-1.5-pro-exp-0801                            Owned By: google
-gemini-1.5-pro-exp-0827                            Owned By: google
-gemini-1.5-pro-latest                              Owned By: google
-gemini-2.0-flash                                   Owned By: google
-gemini-2.0-flash-exp                               Owned By: google
-gemini-2.0-flash-lite                              Owned By: google
-gemini-2.0-flash-thinking-exp                      Owned By: google
-gemini-2.0-flash-thinking-exp-01-21                Owned By: google
-gemini-2.0-pro-exp-02-05                           Owned By: google
-gemini-2.5-pro-exp-03-25                           Owned By: google
-gemini-2.5-pro-preview-03-25                       Owned By: google
-gemini-exp-1114                                    Owned By: google
-gemini-exp-1206                                    Owned By: google
-gemini-pro                                         Owned By: google
-gpt-3.5-turbo                                      Owned By: 31mopenai
-gpt-3.5-turbo-0125                                 Owned By: 31mopenai
-gpt-3.5-turbo-0301                                 Owned By: 31mopenai
-gpt-3.5-turbo-0613                                 Owned By: 31mopenai
-gpt-3.5-turbo-1106                                 Owned By: 31mopenai
-gpt-3.5-turbo-16k                                  Owned By: 31mopenai
-gpt-3.5-turbo-16k-0613                             Owned By: 31mopenai
-gpt-3.5-turbo-instruct                             Owned By: 31mopenai
-gpt-4                                              Owned By: 31mopenai
-gpt-4-0125-preview                                 Owned By: 31mopenai
-gpt-4-0613                                         Owned By: 31mopenai
-gpt-4-1106-preview                                 Owned By: 31mopenai
-gpt-4-turbo                                        Owned By: 31mopenai
-gpt-4-turbo-2024-04-09                             Owned By: 31mopenai
-gpt-4.1                                            Owned By: 31mopenai
-gpt-4.1-2025-04-14                                 Owned By: 31mopenai
-gpt-4.1-mini                                       Owned By: 31mopenai
-gpt-4.1-mini-2025-04-14                            Owned By: 31mopenai
-gpt-4.1-nano                                       Owned By: 31mopenai
-gpt-4.1-nano-2025-04-14                            Owned By: 31mopenai
-gpt-4.5-preview                                    Owned By: 31mopenai
-gpt-4.5-preview-2025-02-27                         Owned By: 31mopenai
-gpt-4o                                             Owned By: 31mopenai
-gpt-4o-2024-05-13                                  Owned By: 31mopenai
-gpt-4o-2024-08-06                                  Owned By: 31mopenai
-gpt-4o-2024-11-20                                  Owned By: 31mopenai
-gpt-4o-audio-preview                               Owned By: 31mopenai
-gpt-4o-audio-preview-2024-10-01                    Owned By: 31mopenai
-gpt-4o-audio-preview-2024-12-17                    Owned By: 31mopenai
-gpt-4o-mini                                        Owned By: 31mopenai
-gpt-4o-mini-2024-07-18                             Owned By: 31mopenai
-gpt-4o-mini-audio-preview                          Owned By: 31mopenai
-gpt-4o-mini-audio-preview-2024-12-17               Owned By: 31mopenai
-gpt-4o-mini-search-preview                         Owned By: 31mopenai
-gpt-4o-mini-search-preview-2025-03-11              Owned By: 31mopenai
-gpt-4o-mini-transcribe                             Owned By: 31mopenai
-gpt-4o-search-preview                              Owned By: 31mopenai
-gpt-4o-search-preview-2025-03-11                   Owned By: 31mopenai
-gpt-4o-transcribe                                  Owned By: 31mopenai
-grok-3-beta                                        Owned By: xai
-grok-3-fast-beta                                   Owned By: xai
-grok-3-mini-beta                                   Owned By: xai
-grok-3-mini-fast-beta                              Owned By: xai
-llama-4-scout-17b-128e-instruct-fp8                Owned By: meta
-llama-4-scout-17b-16e-instruct                     Owned By: meta
-meta.llama3-1-405b-instruct-v1:0                   Owned By: meta
-meta.llama3-1-70b-instruct-v1:0                    Owned By: meta
-meta.llama3-1-8b-instruct-v1:0                     Owned By: meta
-meta.llama3-3-70b-instruct-v1:0                    Owned By: meta
-mistral.mistral-large-2407-v1:0                    Owned By: mistral ai
-o1                                                 Owned By: 31mopenai
-o1-2024-12-17                                      Owned By: 31mopenai
-o1-mini                                            Owned By: 31mopenai
-o1-mini-2024-09-12                                 Owned By: 31mopenai
-o1-preview                                         Owned By: 31mopenai
-o1-preview-2024-09-12                              Owned By: 31mopenai
-o3-mini                                            Owned By: 31mopenai
-o3-mini-2025-01-31                                 Owned By: 31mopenai
-omni-moderation-2024-09-26                         Owned By: 31mopenai
-omni-moderation-latest                             Owned By: 31mopenai
-qwen2.5-vl-72b-instruct                            Owned By: alibaba
-qwq-32b                                            Owned By: alibaba
-text-embedding-3-large                             Owned By: 31mopenai
-text-embedding-3-small                             Owned By: 31mopenai
-text-embedding-ada-002                             Owned By: 31mopenai
-text-moderation-latest                             Owned By: 31mopenai
-text-moderation-stable                             Owned By: 31mopenai
-tts-1                                              Owned By: 31mopenai
-tts-1-hd                                           Owned By: 31mopenai
-whisper-1                                          Owned By: 31mopenai
+  1 - anthropic.claude-3-5-haiku-20241022-v1:0                - anthropic
+  2 - anthropic.claude-3-5-sonnet-20240620-v1:0               - anthropic
+  3 - anthropic.claude-3-5-sonnet-20241022-v2:0               - anthropic
+  4 - anthropic.claude-3-7-sonnet-20250219-v1:0               - anthropic
+  5 - anthropic.claude-3-haiku-20240307-v1:0                  - anthropic
+  6 - anthropic.claude-3-sonnet-20240229-v1:0                 - anthropic
+  7 - anthropic.claude-haiku-4-5-20251001-v1:0                - anthropic
+  8 - anthropic.claude-opus-4-1-20250805-v1:0                 - anthropic
+  9 - anthropic.claude-opus-4-20250514-v1:0                   - anthropic
+ 10 - anthropic.claude-opus-4-5-20251101-v1:0                 - anthropic
+ 11 - anthropic.claude-opus-4-6-v1                            - anthropic
+ 12 - anthropic.claude-sonnet-4-20250514-v1:0                 - anthropic
+ 13 - anthropic.claude-sonnet-4-5-20250929-v1:0               - anthropic
+ 14 - cf.deepseek-r1-distill-qwen-32b                         - deepseek
+ 15 - cf.embeddinggemma-300m                                  - google
+ 16 - cf.flux-2-dev                                           - BFL
+ 17 - cf.flux-2-klein-4b                                      - BFL
+ 18 - cf.flux-2-klein-9b                                      - BFL
+ 19 - cf.gemma-2b-it-lora                                     - google
+ 20 - cf.gemma-3-12b-it                                       - google
+ 21 - cf.gemma-7b-it                                          - google
+ 22 - cf.gemma-7b-it-lora                                     - google
+ 23 - cf.gemma-sea-lion-v4-27b-it                             - google
+ 24 - cf.gpt-oss-120b                                         - openai
+ 25 - cf.gpt-oss-20b                                          - openai
+ 26 - cf.granite-4.0-h-micro                                  - ibm
+ 27 - cf.llama-3-8b-instruct                                  - meta
+ 28 - cf.llama-3-8b-instruct-awq                              - meta
+ 29 - cf.llama-3.1-70b-instruct                               - meta
+ 30 - cf.llama-3.1-8b-instruct                                - meta
+ 31 - cf.llama-3.1-8b-instruct-awq                            - meta
+ 32 - cf.llama-3.1-8b-instruct-fast                           - meta
+ 33 - cf.llama-3.1-8b-instruct-fp8                            - meta
+ 34 - cf.llama-3.2-1b-instruct                                - meta
+ 35 - cf.llama-3.2-3b-instruct                                - meta
+ 36 - cf.llama-3.3-70b-instruct-fp8-fast                      - meta
+ 37 - cf.llama-4-scout-17b-16e-instruct                       - meta
+ 38 - cf.llama-guard-3-8b                                     - meta
+ 39 - cf.lucid-origin                                         - BFL
+ 40 - cf.meta-llama-3-8b-instruct                             - meta
+ 41 - cf.mistral-small-3.1-24b-instruct                       - mistral ai
+ 42 - cf.phoenix-1.0                                          - BFL
+ 43 - cf.plamo-embedding-1b                                   - pfn
+ 44 - cf.qwen2.5-coder-32b-instruct                           - alibaba
+ 45 - cf.qwen3-30b-a3b-fp8                                    - alibaba
+ 46 - cf.qwen3-embedding-0.6b                                 - alibaba
+ 47 - cf.qwq-32b                                              - alibaba
+ 48 - chatgpt-4o-latest                                       - openai
+ 49 - claude-haiku-4-5                                        - anthropic
+ 50 - claude-opus-4-1                                         - anthropic
+ 51 - claude-opus-4-5                                         - anthropic
+ 52 - claude-opus-4-6                                         - anthropic
+ 53 - claude-sonnet-4-5                                       - anthropic
+ 54 - codestral-2501                                          - google
+ 55 - codex-mini-latest                                       - openai
+ 56 - cohere-rerank-v4.0-fast                                 - cohere
+ 57 - cohere-rerank-v4.0-pro                                  - cohere
+ 58 - cohere.command-light-text-v14                           - cohere
+ 59 - cohere.command-r-plus-v1:0                              - cohere
+ 60 - cohere.command-r-v1:0                                   - cohere
+ 61 - cohere.command-text-v14                                 - cohere
+ 62 - cohere.embed-english-v3                                 - cohere
+ 63 - cohere.embed-multilingual-v3                            - cohere
+ 64 - cohere.embed-v4:0                                       - cohere
+ 65 - cohere.rerank-v3-5:0                                    - cohere
+ 66 - computer-use-preview                                    - openai
+ 67 - computer-use-preview-2025-03-11                         - openai
+ 68 - dall-e-3                                                - openai
+ 69 - dataforseo-search                                       - dataforseo
+ 70 - deepseek-chat                                           - deepseek
+ 71 - deepseek-coder                                          - deepseek
+ 72 - deepseek-r1-0528                                        - deepseek
+ 73 - deepseek-reasoner                                       - deepseek
+ 74 - deepseek-v3-0324                                        - deepseek
+ 75 - deepseek-v3.1                                           - deepseek
+ 76 - deepseek-v3.2                                           - deepseek
+ 77 - deepseek-v3.2-speciale                                  - deepseek
+ 78 - deepseek.r1-v1:0                                        - deepseek
+ 79 - eleven_flash_v2                                         - elevenlabs
+ 80 - eleven_flash_v2_5                                       - elevenlabs
+ 81 - eleven_multilingual_v2                                  - elevenlabs
+ 82 - eleven_turbo_v2                                         - elevenlabs
+ 83 - eleven_turbo_v2_5                                       - elevenlabs
+ 84 - eleven_v3                                               - elevenlabs
+ 85 - embed-v-4-0                                             - cohere
+ 86 - exa_ai-search                                           - exa_ai
+ 87 - firecrawl-search                                        - firecrawl
+ 88 - flux-1.1-pro                                            - BFL
+ 89 - flux.1-kontext-pro                                      - BFL
+ 90 - flux.2-pro                                              - BFL
+ 91 - gemini-2.0-flash                                        - google
+ 92 - gemini-2.0-flash-lite                                   - google
+ 93 - gemini-2.5-flash                                        - google
+ 94 - gemini-2.5-flash-image                                  - google
+ 95 - gemini-2.5-flash-lite                                   - google
+ 96 - gemini-2.5-flash-lite-preview-09-2025                   - google
+ 97 - gemini-2.5-flash-preview-04-17                          - google
+ 98 - gemini-2.5-flash-preview-09-2025                        - google
+ 99 - gemini-2.5-flash-preview-tts                            - google
+100 - gemini-2.5-flash-tts                                    - google
+101 - gemini-2.5-pro                                          - google
+102 - gemini-2.5-pro-preview-tts                              - google
+103 - gemini-2.5-pro-tts                                      - google
+104 - gemini-3-flash-preview                                  - google
+105 - gemini-3-pro-image-preview                              - google
+106 - gemini-3-pro-preview                                    - google
+107 - gemini-embedding-001                                    - google
+108 - gemini-flash-latest                                     - google
+109 - gemini-flash-lite-latest                                - google
+110 - gemini-robotics-er-1.5-preview                          - google
+111 - gemma-3-12b-it                                          - google
+112 - gemma-3-1b-it                                           - google
+113 - gemma-3-27b-it                                          - google
+114 - gemma-3-4b-it                                           - google
+115 - gemma-3n-e2b-it                                         - google
+116 - gemma-3n-e4b-it                                         - google
+117 - gen4.5                                                  - runwayml
+118 - gen4_image                                              - runwayml
+119 - gen4_image_turbo                                        - runwayml
+120 - gen4_turbo                                              - runwayml
+121 - glm-4.6                                                 - zai
+122 - glm-4.7                                                 - zai
+123 - glm-4.7-flash                                           - zai
+124 - glm-4.7-flashx                                          - zai
+125 - glm-5                                                   - zai
+126 - google_pse-search                                       - google
+127 - gpt-4.1                                                 - openai
+128 - gpt-4.1-2025-04-14                                      - openai
+129 - gpt-4.1-mini                                            - openai
+130 - gpt-4.1-mini-2025-04-14                                 - openai
+131 - gpt-4.1-nano                                            - openai
+132 - gpt-4.1-nano-2025-04-14                                 - openai
+133 - gpt-4o                                                  - openai
+134 - gpt-4o-2024-05-13                                       - openai
+135 - gpt-4o-2024-08-06                                       - openai
+136 - gpt-4o-2024-11-20                                       - openai
+137 - gpt-4o-audio-preview                                    - openai
+138 - gpt-4o-audio-preview-2024-10-01                         - openai
+139 - gpt-4o-audio-preview-2024-12-17                         - openai
+140 - gpt-4o-mini                                             - openai
+141 - gpt-4o-mini-2024-07-18                                  - openai
+142 - gpt-4o-mini-audio-preview                               - openai
+143 - gpt-4o-mini-audio-preview-2024-12-17                    - openai
+144 - gpt-4o-mini-search-preview                              - openai
+145 - gpt-4o-mini-search-preview-2025-03-11                   - openai
+146 - gpt-4o-mini-transcribe                                  - openai
+147 - gpt-4o-mini-tts                                         - openai
+148 - gpt-4o-search-preview                                   - openai
+149 - gpt-4o-search-preview-2025-03-11                        - openai
+150 - gpt-4o-transcribe                                       - openai
+151 - gpt-4o-transcribe-diarize                               - openai
+152 - gpt-5                                                   - openai
+153 - gpt-5-2025-08-07                                        - openai
+154 - gpt-5-chat                                              - openai
+155 - gpt-5-chat-latest                                       - openai
+156 - gpt-5-codex                                             - openai
+157 - gpt-5-mini                                              - openai
+158 - gpt-5-mini-2025-08-07                                   - openai
+159 - gpt-5-nano                                              - openai
+160 - gpt-5-nano-2025-08-07                                   - openai
+161 - gpt-5-pro                                               - openai
+162 - gpt-5-pro-2025-10-06                                    - openai
+163 - gpt-5.1                                                 - openai
+164 - gpt-5.1-2025-11-13                                      - openai
+165 - gpt-5.1-chat                                            - openai
+166 - gpt-5.1-codex                                           - openai
+167 - gpt-5.1-codex-max                                       - openai
+168 - gpt-5.1-codex-mini                                      - openai
+169 - gpt-5.2                                                 - openai
+170 - gpt-5.2-2025-12-11                                      - openai
+171 - gpt-5.2-chat                                            - openai
+172 - gpt-5.2-codex                                           - openai
+173 - gpt-5.2-pro                                             - openai
+174 - gpt-5.2-pro-2025-12-11                                  - openai
+175 - gpt-audio                                               - openai
+176 - gpt-audio-2025-08-28                                    - openai
+177 - gpt-audio-mini                                          - openai
+178 - gpt-audio-mini-2025-10-06                               - openai
+179 - gpt-image-1                                             - openai
+180 - gpt-image-1-mini                                        - openai
+181 - gpt-image-1.5                                           - openai
+182 - gpt-oss-120b                                            - openai
+183 - grok-3                                                  - xai
+184 - grok-3-beta                                             - xai
+185 - grok-3-fast                                             - xai
+186 - grok-3-fast-beta                                        - xai
+187 - grok-3-fast-latest                                      - xai
+188 - grok-3-latest                                           - xai
+189 - grok-3-mini                                             - xai
+190 - grok-3-mini-beta                                        - xai
+191 - grok-3-mini-fast                                        - xai
+192 - grok-3-mini-fast-beta                                   - xai
+193 - grok-3-mini-fast-latest                                 - xai
+194 - grok-3-mini-latest                                      - xai
+195 - grok-4                                                  - xai
+196 - grok-4-0709                                             - xai
+197 - grok-4-1-fast-non-reasoning                             - xai
+198 - grok-4-1-fast-reasoning                                 - xai
+199 - grok-4-fast-non-reasoning                               - xai
+200 - grok-4-fast-reasoning                                   - xai
+201 - grok-4-latest                                           - xai
+202 - grok-code-fast-1                                        - xai
+203 - groq.gpt-oss-120b                                       - openai
+204 - groq.gpt-oss-20b                                        - openai
+205 - groq.gpt-oss-safeguard-20b                              - openai
+206 - groq.kimi-k2-instruct-0905                              - moonshot
+207 - groq.llama-4-maverick-17b-128e-instruct                 - meta
+208 - groq.llama-4-scout-17b-16e-instruct                     - meta
+209 - groq.llama-guard-4-12b                                  - meta
+210 - groq.llama-prompt-guard-2-22m                           - meta
+211 - groq.llama-prompt-guard-2-86m                           - meta
+212 - groq.playai-tts                                         - play ai
+213 - groq.playai-tts-arabic                                  - play ai
+214 - groq.qwen3-32b                                          - alibaba
+215 - groq.whisper-large-v3                                   - openai
+216 - groq.whisper-large-v3-turbo                             - openai
+217 - imagen-3.0-fast-generate-001                            - google
+218 - imagen-3.0-generate-001                                 - google
+219 - imagen-3.0-generate-002                                 - google
+220 - imagen-4.0-fast-generate-001                            - google
+221 - imagen-4.0-generate-001                                 - google
+222 - imagen-4.0-ultra-generate-001                           - google
+223 - kimi-k2-0711-preview                                    - moonshot
+224 - kimi-k2-thinking                                        - moonshot
+225 - kimi-k2.5                                               - moonshot
+226 - kimi-latest                                             - moonshot
+227 - kimi-thinking-preview                                   - moonshot
+228 - llama-4-maverick-17b-128e-instruct-fp8                  - meta
+229 - llama-4-scout-17b-16e-instruct                          - meta
+230 - meta.llama3-1-405b-instruct-v1:0                        - meta
+231 - meta.llama3-1-70b-instruct-v1:0                         - meta
+232 - meta.llama3-1-8b-instruct-v1:0                          - meta
+233 - meta.llama3-3-70b-instruct-v1:0                         - meta
+234 - minimax-m2                                              - minimax
+235 - minimax-m2.1                                            - minimax
+236 - minimax-m2.1-lightning                                  - minimax
+237 - minimax-m2.5                                            - minimax
+238 - minimax-m2.5-lightning                                  - minimax
+239 - mistral-large-3                                         - mistral ai
+240 - mistral-ocr-2503                                        - mistral ai
+241 - mistral-ocr-2505                                        - mistral ai
+242 - mistral-ocr-latest                                      - mistral ai
+243 - mistral-small-2503                                      - google
+244 - mistral.mistral-large-2407-v1:0                         - mistral ai
+245 - moonshot-v1-128k                                        - moonshot
+246 - moonshot-v1-128k-vision-preview                         - moonshot
+247 - moonshot-v1-32k                                         - moonshot
+248 - moonshot-v1-32k-vision-preview                          - moonshot
+249 - moonshot-v1-8k                                          - moonshot
+250 - moonshot-v1-8k-vision-preview                           - moonshot
+251 - moonshot-v1-auto                                        - moonshot
+252 - nvidia_nim.bge-m3                                       - baai
+253 - nvidia_nim.eurollm-9b-instruct                          - utter-project
+254 - nvidia_nim.gemma-3-1b-it                                - google
+255 - nvidia_nim.gpt-oss-120b                                 - openai
+256 - nvidia_nim.gpt-oss-20b                                  - openai
+257 - nvidia_nim.llama-3.1-nemotron-ultra-253b-v1             - nvidia
+258 - nvidia_nim.llama-3.2-nemoretriever-1b-vlm-embed-v1      - nvidia
+259 - nvidia_nim.llama-3.2-nemoretriever-300m-embed-v1        - nvidia
+260 - nvidia_nim.llama-3.2-nemoretriever-300m-embed-v2        - nvidia
+261 - nvidia_nim.llama-3.2-nemoretriever-500m-rerank-v2       - nvidia
+262 - nvidia_nim.llama-3.2-nv-embedqa-1b-v2                   - nvidia
+263 - nvidia_nim.llama-3.2-nv-rerankqa-1b-v2                  - nvidia
+264 - nvidia_nim.llama-3.3-nemotron-super-49b-v1.5            - nvidia
+265 - nvidia_nim.llama-4-scout-17b-16e-instruct               - meta
+266 - nvidia_nim.nemotron-nano-12b-v2-vl                      - nvidia
+267 - nvidia_nim.nemotron-parse                               - nvidia
+268 - nvidia_nim.nv-embed-v1                                  - nvidia
+269 - nvidia_nim.nv-embedqa-e5-v5                             - nvidia
+270 - nvidia_nim.nv-rerankqa-mistral-4b-v3                    - nvidia
+271 - nvidia_nim.nvidia-nemotron-nano-9b-v2                   - nvidia
+272 - nvidia_nim.qwen3-next-80b-a3b-thinking                  - alibaba
+273 - o1                                                      - openai
+274 - o1-2024-12-17                                           - openai
+275 - o1-mini                                                 - openai
+276 - o1-mini-2024-09-12                                      - openai
+277 - o1-pro                                                  - openai
+278 - o1-pro-2025-03-19                                       - openai
+279 - o3                                                      - openai
+280 - o3-2025-04-16                                           - openai
+281 - o3-deep-research                                        - openai
+282 - o3-deep-research-2025-06-26                             - openai
+283 - o3-mini                                                 - openai
+284 - o3-mini-2025-01-31                                      - openai
+285 - o3-pro                                                  - openai
+286 - o3-pro-2025-06-10                                       - openai
+287 - o4-mini                                                 - openai
+288 - o4-mini-2025-04-16                                      - openai
+289 - o4-mini-deep-research                                   - openai
+290 - o4-mini-deep-research-2025-06-26                        - openai
+291 - omni-moderation-2024-09-26                              - openai
+292 - omni-moderation-latest                                  - openai
+293 - openai.gpt-oss-120b-1:0                                 - openai
+294 - openai.gpt-oss-20b-1:0                                  - openai
+295 - parallel_ai-search                                      - parallel_ai
+296 - parallel_ai-search-pro                                  - parallel_ai
+297 - perplexity-search                                       - perplexity
+298 - qvq-max                                                 - alibaba
+299 - qvq-max-2025-03-25                                      - alibaba
+300 - qvq-max-latest                                          - alibaba
+301 - qwen-flash                                              - alibaba
+302 - qwen-flash-2025-07-28                                   - alibaba
+303 - qwen-image                                              - alibaba
+304 - qwen-image-edit                                         - alibaba
+305 - qwen-image-edit-plus                                    - alibaba
+306 - qwen-image-plus                                         - alibaba
+307 - qwen-max                                                - alibaba
+308 - qwen-max-2025-01-25                                     - alibaba
+309 - qwen-max-latest                                         - alibaba
+310 - qwen-mt-flash                                           - alibaba
+311 - qwen-mt-lite                                            - alibaba
+312 - qwen-mt-plus                                            - alibaba
+313 - qwen-mt-turbo                                           - alibaba
+314 - qwen-plus                                               - alibaba
+315 - qwen-plus-2025-04-28                                    - alibaba
+316 - qwen-plus-2025-07-14                                    - alibaba
+317 - qwen-plus-2025-07-28                                    - alibaba
+318 - qwen-plus-2025-09-11                                    - alibaba
+319 - qwen-plus-2025-12-01                                    - alibaba
+320 - qwen-plus-character                                     - alibaba
+321 - qwen-plus-latest                                        - alibaba
+322 - qwen-turbo                                              - alibaba
+323 - qwen-turbo-2025-04-28                                   - alibaba
+324 - qwen-turbo-latest                                       - alibaba
+325 - qwen-vl-max                                             - alibaba
+326 - qwen-vl-max-2025-04-08                                  - alibaba
+327 - qwen-vl-max-latest                                      - alibaba
+328 - qwen-vl-ocr                                             - alibaba
+329 - qwen-vl-plus                                            - alibaba
+330 - qwen-vl-plus-2025-05-07                                 - alibaba
+331 - qwen-vl-plus-latest                                     - alibaba
+332 - qwen2.5-14b-instruct                                    - alibaba
+333 - qwen2.5-14b-instruct-1m                                 - alibaba
+334 - qwen2.5-32b-instruct                                    - alibaba
+335 - qwen2.5-72b-instruct                                    - alibaba
+336 - qwen2.5-7b-instruct                                     - alibaba
+337 - qwen2.5-7b-instruct-1m                                  - alibaba
+338 - qwen2.5-vl-32b-instruct                                 - alibaba
+339 - qwen2.5-vl-3b-instruct                                  - alibaba
+340 - qwen2.5-vl-72b-instruct                                 - alibaba
+341 - qwen2.5-vl-7b-instruct                                  - alibaba
+342 - qwen3-0.6b                                              - alibaba
+343 - qwen3-1.7b                                              - alibaba
+344 - qwen3-14b                                               - alibaba
+345 - qwen3-235b-a22b                                         - alibaba
+346 - qwen3-235b-a22b-fp8-tput                                - alibaba
+347 - qwen3-235b-a22b-instruct-2507                           - alibaba
+348 - qwen3-235b-a22b-thinking-2507                           - alibaba
+349 - qwen3-30b-a3b                                           - alibaba
+350 - qwen3-30b-a3b-instruct-2507                             - alibaba
+351 - qwen3-30b-a3b-thinking-2507                             - alibaba
+352 - qwen3-32b                                               - alibaba
+353 - qwen3-4b                                                - alibaba
+354 - qwen3-8b                                                - alibaba
+355 - qwen3-coder-480b-a35b-instruct                          - alibaba
+356 - qwen3-coder-flash                                       - alibaba
+357 - qwen3-coder-flash-2025-07-28                            - alibaba
+358 - qwen3-coder-plus                                        - alibaba
+359 - qwen3-coder-plus-2025-07-22                             - alibaba
+360 - qwen3-coder-plus-2025-09-23                             - alibaba
+361 - qwen3-max                                               - alibaba
+362 - qwen3-max-2025-09-23                                    - alibaba
+363 - qwen3-max-2026-01-23                                    - alibaba
+364 - qwen3-max-preview                                       - alibaba
+365 - qwen3-next-80b-a3b-instruct                             - alibaba
+366 - qwen3-next-80b-a3b-thinking                             - alibaba
+367 - qwen3-rerank                                            - alibaba
+368 - qwen3-vl-32b-instruct                                   - alibaba
+369 - qwen3-vl-flash                                          - alibaba
+370 - qwen3-vl-flash-2025-10-15                               - alibaba
+371 - qwen3-vl-flash-2026-01-22                               - alibaba
+372 - qwen3-vl-plus                                           - alibaba
+373 - qwen3-vl-plus-2025-12-19                                - alibaba
+374 - qwen3.5-397b-a17b                                       - alibaba
+375 - qwen3.5-plus                                            - alibaba
+376 - qwq-32b                                                 - alibaba
+377 - qwq-plus                                                - alibaba
+378 - qwq-plus-2025-03-05                                     - alibaba
+379 - runwayml.eleven_multilingual_v2                         - runwayml
+380 - scribe_v1                                               - elevenlabs
+381 - scribe_v2                                               - elevenlabs
+382 - seedream-4-0-250828                                     - bytedance
+383 - seedream-4-5-251128                                     - bytedance
+384 - semantic-ranker-default-004                             - google
+385 - semantic-ranker-fast-004                                - google
+386 - sonar                                                   - perplexity
+387 - sonar-deep-research                                     - perplexity
+388 - sonar-pro                                               - perplexity
+389 - sonar-reasoning                                         - perplexity
+390 - sonar-reasoning-pro                                     - perplexity
+391 - sora-2                                                  - openai
+392 - sora-2-pro                                              - openai
+393 - stability.sd3-5-large-v1:0                              - stability
+394 - stability.stable-image-control-sketch-v1:0              - stability
+395 - stability.stable-image-control-structure-v1:0           - stability
+396 - stability.stable-image-core-v1:1                        - stability
+397 - stability.stable-image-erase-object-v1:0                - stability
+398 - stability.stable-image-inpaint-v1:0                     - stability
+399 - stability.stable-image-remove-background-v1:0           - stability
+400 - stability.stable-image-search-recolor-v1:0              - stability
+401 - stability.stable-image-search-replace-v1:0              - stability
+402 - stability.stable-image-style-guide-v1:0                 - stability
+403 - stability.stable-image-ultra-v1:1                       - stability
+404 - stability.stable-style-transfer-v1:0                    - stability
+405 - tavily-search                                           - tavily
+406 - tavily-search-advanced                                  - tavily
+407 - text-embedding-3-large                                  - openai
+408 - text-embedding-3-small                                  - openai
+409 - text-embedding-ada-002                                  - openai
+410 - text-embedding-v3                                       - alibaba
+411 - text-embedding-v4                                       - alibaba
+412 - text-moderation-latest                                  - openai
+413 - text-moderation-stable                                  - openai
+414 - tongyi-embedding-vision-flash                           - alibaba
+415 - tongyi-embedding-vision-plus                            - alibaba
+416 - tts-1                                                   - openai
+417 - tts-1-hd                                                - openai
+418 - veo-3.1-fast-generate-001                               - google
+419 - veo-3.1-fast-generate-preview                           - google
+420 - veo-3.1-generate-001                                    - google
+421 - veo-3.1-generate-preview                                - google
+422 - wan2.2-t2i-flash                                        - alibaba
+423 - wan2.2-t2i-plus                                         - alibaba
+424 - whisper-1                                               - openai
+425 - z-image-turbo                                           - alibaba
 
